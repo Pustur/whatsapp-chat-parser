@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/**/*.js"
+    "lint": "eslint src/**/*.js",
+    "format": "pretty-quick",
+    "format:staged": "pretty-quick --staged"
   },
   "author": "Loris Bettazza <loris.bettazza@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "13.0.0",
-    "eslint-plugin-import": "2.13.0"
+    "eslint-config-prettier": "2.9.0",
+    "eslint-plugin-import": "2.13.0",
+    "eslint-plugin-prettier": "2.6.2",
+    "prettier": "1.14.0",
+    "pretty-quick": "1.6.0"
   }
 }
