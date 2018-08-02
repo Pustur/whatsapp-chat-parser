@@ -1,0 +1,11 @@
+{
+  "name": "whatsapp-chat-parser",
+  "version": "0.1.0",
+  "description": "A package to parse WhatsApp chats",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Loris Bettazza <loris.bettazza@gmail.com>",
+  "license": "MIT"
+}
