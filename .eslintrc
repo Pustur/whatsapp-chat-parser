@@ -1,3 +1,7 @@
 {
-  "extends": ["airbnb-base", "plugin:prettier/recommended"]
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "env": {
+    "jest": true,
+    "node": true
+  }
 }
