@@ -14,7 +14,7 @@ function convertTime12to24(time, ampm) {
     hours = parseInt(hours, 10) + 12;
   }
 
-  return `${hours}:${minutes}:${seconds || '00'}`;
+  return `${hours}:${minutes}${seconds ? `:${seconds}` : ''}`;
 }
 
 /**
