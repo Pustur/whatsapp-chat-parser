@@ -18,10 +18,20 @@ function convertTime12to24(time, ampm) {
 }
 
 /**
+ * Normalizes a time string to have the following format: hh:mm:ss
+ */
+function normalizeTime(time) {
+  const [hours, minutes, seconds] = time.split(':');
+
+  return `${hours.length === 1 ? `0${hours}` : hours}:${minutes}:${seconds ||
+    '00'}`;
+}
+
+/**
  * Normalizes am / a.m. / etc. to AM (uppercase, no other characters)
  */
 function normalizeAMPM(ampm) {
   return ampm.replace(/[^apm]/gi, '').toUpperCase();
 }
 
-module.exports = { convertTime12to24, normalizeAMPM };
+module.exports = { convertTime12to24, normalizeTime, normalizeAMPM };

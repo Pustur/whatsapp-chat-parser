@@ -1,4 +1,8 @@
-const { convertTime12to24, normalizeAMPM } = require('./time.js');
+const {
+  convertTime12to24,
+  normalizeTime,
+  normalizeAMPM,
+} = require('./time.js');
 
 describe('time.js', () => {
   describe('convertTime12to24', () => {
@@ -31,6 +35,20 @@ describe('time.js', () => {
       expect(normalizeAMPM('p.m.')).toBe('PM');
       expect(normalizeAMPM('A.M.')).toBe('AM');
       expect(normalizeAMPM('P.M.')).toBe('PM');
+    });
+  });
+
+  describe('normalizeTime', () => {
+    it('should add seconds if they are missing', () => {
+      expect(normalizeTime('12:34')).toBe('12:34:00');
+    });
+
+    it('should add a leading 0 to the hours if missing', () => {
+      expect(normalizeTime('1:23:45')).toBe('01:23:45');
+    });
+
+    it('should not alter an already normalized string', () => {
+      expect(normalizeTime('12:34:56')).toBe('12:34:56');
     });
   });
 });
