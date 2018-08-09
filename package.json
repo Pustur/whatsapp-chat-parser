@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-chat-parser",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A package to parse WhatsApp chats",
   "main": "src/index.js",
   "scripts": {
@@ -12,7 +12,28 @@
     "format": "pretty-quick",
     "format:staged": "pretty-quick --staged"
   },
-  "author": "Loris Bettazza <loris.bettazza@gmail.com>",
+  "engines": {
+    "node" : ">=8.0.0"
+  },
+  "keywords": [
+    "whatsapp",
+    "chat",
+    "discussion",
+    "log",
+    "parser"
+  ],
+  "homepage": "https://github.com/Pustur/whatsapp-chat-parser",
+  "repository": {
+    "type" : "git",
+    "url": "https://github.com/Pustur/whatsapp-chat-parser"
+  },
+  "bugs": {
+    "url": "https://github.com/Pustur/whatsapp-chat-parser/issues"
+  },
+  "author": {
+    "name": "Loris Bettazza",
+    "email": "loris.bettazza@gmail.com"
+  },
   "license": "MIT",
   "devDependencies": {
     "eslint": "4.19.1",
