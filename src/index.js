@@ -28,7 +28,7 @@ function readFile(filepath) {
  */
 function parseFile(filepath) {
   return readFile(filepath)
-    .then(data => data.split('\n').filter(line => Boolean(line)))
+    .then(data => data.split('\n'))
     .then(makeArrayOfMessages)
     .then(parseMessages);
 }

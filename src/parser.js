@@ -30,6 +30,11 @@ function makeArrayOfMessages(lines) {
         return acc.concat({ system: true, msg: line });
       }
 
+      // Last element not set, just skip this (might be an empty file)
+      if (typeof acc.slice(-1)[0] === 'undefined') {
+        return acc;
+      }
+
       // Else it's part of the previous message and it should be concatenated
       return acc.slice(0, -1).concat({
         system: acc.slice(-1)[0].system,
