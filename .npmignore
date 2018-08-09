@@ -8,4 +8,4 @@ src/*.test.js
 .eslintrc
 .prettierignore
 .prettierrc
-.jest.config.js
+jest.config.js
