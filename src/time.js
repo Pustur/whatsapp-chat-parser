@@ -4,7 +4,7 @@
  */
 function convertTime12to24(time, ampm) {
   // eslint-disable-next-line prefer-const
-  let [hours, minutes, seconds] = time.split(':');
+  let [hours, minutes, seconds] = time.split(/[:.]/);
 
   if (hours === '12') {
     hours = '00';
@@ -21,7 +21,7 @@ function convertTime12to24(time, ampm) {
  * Normalizes a time string to have the following format: hh:mm:ss
  */
 function normalizeTime(time) {
-  const [hours, minutes, seconds] = time.split(':');
+  const [hours, minutes, seconds] = time.split(/[:.]/);
 
   return `${hours.length === 1 ? `0${hours}` : hours}:${minutes}:${seconds ||
     '00'}`;

@@ -84,7 +84,7 @@ function parseMessages(messages) {
 
     const [hours, minutes, seconds] = normalizeTime(
       ampm ? convertTime12to24(time, normalizeAMPM(ampm)) : time,
-    ).split(':');
+    ).split(/[:.]/);
 
     return {
       date: new Date(year, month - 1, day, hours, minutes, seconds),
