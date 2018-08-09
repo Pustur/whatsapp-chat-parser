@@ -4,6 +4,7 @@ describe('parser.js', () => {
   describe('makeArrayOfMessages', () => {
     const multilineMessage = ['23/06/2018, 01:55 p.m. - Loris: one', 'two'];
     const systemMessage = ['06/03/2017, 00:45 - You created group "Test"'];
+    const emptyMessage = ['03/02/17, 18:42 - Luke: '];
 
     it('should merge multiline messages', () => {
       expect(makeArrayOfMessages(multilineMessage)[0].msg).toBe(
@@ -13,6 +14,12 @@ describe('parser.js', () => {
 
     it('should not flag normal messages as system messages', () => {
       expect(makeArrayOfMessages(multilineMessage)[0].system).toBe(false);
+
+      /**
+       * Sometimes a message could be empty (for reasons unknown) but should
+       * still not be labeled as a system message
+       */
+      expect(makeArrayOfMessages(emptyMessage)[0].system).toBe(false);
     });
 
     it('should flag system messages', () => {
