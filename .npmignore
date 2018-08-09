@@ -1,0 +1,11 @@
+# My global .gitignore
+ignore/
+ignored/
+
+# This repo
+samples/
+src/*.test.js
+.eslintrc
+.prettierignore
+.prettierrc
+.jest.config.js
