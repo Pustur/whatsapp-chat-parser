@@ -24,7 +24,7 @@ function makeArrayOfMessages(lines) {
     if (!regexParser.test(line)) {
       /**
        * If it doesn't match the first regex but still starts with a datetime
-       * we should consider it a "whatsapp event" and discard it
+       * it should be considered a "whatsapp event" so it gets labeled "system"
        */
       if (regexStartsWithDateTime.test(line)) {
         return acc.concat({ system: true, msg: line });
@@ -42,7 +42,7 @@ function makeArrayOfMessages(lines) {
 
 /**
  * Given an array of messages, parses them and returns an object with the fields
- * date, time, ampm, author, message
+ * date, author, message
  */
 function parseMessages(messages) {
   // Parse messages with regex

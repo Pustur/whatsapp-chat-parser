@@ -116,7 +116,7 @@ function changeFrequencyAnalysis(numericDates) {
 /**
  * Takes an array of numeric dates and tries to understand if the days come
  * before the month or the other way around by running the dates through all
- * checks
+ * checks (checkAbove12, checkDecreasing, changeFrequencyAnalysis)
  *
  * Output is true if days are first, false if they are second, or null if it
  * failed to understand the order
