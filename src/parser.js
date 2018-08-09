@@ -1,3 +1,10 @@
+const { daysBeforeMonths, normalizeDate } = require('./date.js');
+const {
+  convertTime12to24,
+  normalizeAMPM,
+  normalizeTime,
+} = require('./time.js');
+
 const regexParser = /\[?(\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}),? (\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?(?: -|:)? (.+?): ((?:.|\s)+)/i;
 const regexParserSystem = /\[?(\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}),? (\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?(?: -|:)? ((?:.|\s)+)/i;
 const regexStartsWithDateTime = /\[?(\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}),? (\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?/i;
@@ -38,7 +45,8 @@ function makeArrayOfMessages(lines) {
  * date, time, ampm, author, message
  */
 function parseMessages(messages) {
-  return messages.map(obj => {
+  // Parse messages with regex
+  const parsed = messages.map(obj => {
     const { system, msg } = obj;
 
     // If it's a system message another regex should be used to parse it
@@ -51,6 +59,38 @@ function parseMessages(messages) {
     const [, date, time, ampm, author, message] = regexParser.exec(msg);
 
     return { date, time, ampm: ampm || null, author, message };
+  });
+
+  // Understand date format (days come first?)
+  const numericDates = Array.from(
+    new Set(parsed.map(({ date }) => date)),
+    date => date.split(/[-/.]/).map(Number),
+  );
+  const daysFirst = daysBeforeMonths(numericDates);
+
+  // Convert date/time in date object, return final object
+  return parsed.map(({ date, time, ampm, author, message }) => {
+    let day;
+    let month;
+    let year;
+
+    if (daysFirst === false) {
+      [month, day, year] = date.split(/[-/.]/);
+    } else {
+      [day, month, year] = date.split(/[-/.]/);
+    }
+
+    [year, month, day] = normalizeDate(year, month, day);
+
+    const [hours, minutes, seconds] = normalizeTime(
+      ampm ? convertTime12to24(time, normalizeAMPM(ampm)) : time,
+    ).split(':');
+
+    return {
+      date: new Date(year, month - 1, day, hours, minutes, seconds),
+      author,
+      message,
+    };
   });
 }
 

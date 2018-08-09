@@ -21,30 +21,78 @@ describe('parser.js', () => {
   });
 
   describe('parseMessages', () => {
-    it('should parse messages correctly', () => {
+    describe('normal messages', () => {
       const messages = [
         { system: false, msg: '23/06/2018, 01:55 a.m. - Luke: Hey!' },
       ];
       const parsed = parseMessages(messages);
 
-      expect(parsed[0].date).toBe('23/06/2018');
-      expect(parsed[0].time).toBe('01:55');
-      expect(parsed[0].ampm).toBe('a.m.');
-      expect(parsed[0].author).toBe('Luke');
-      expect(parsed[0].message).toBe('Hey!');
+      describe('the date', () => {
+        it('should be an instance of the Date object', () => {
+          expect(parsed[0].date).toBeInstanceOf(Date);
+        });
+
+        it('should contain the correct date', () => {
+          expect(parsed[0].date.getFullYear()).toBe(2018);
+          expect(parsed[0].date.getMonth()).toBe(5);
+          expect(parsed[0].date.getDate()).toBe(23);
+        });
+
+        it('should contain the correct time', () => {
+          expect(parsed[0].date.getHours()).toBe(1);
+          expect(parsed[0].date.getMinutes()).toBe(55);
+          expect(parsed[0].date.getSeconds()).toBe(0);
+        });
+      });
+
+      describe('the author', () => {
+        it('should contain the correct author', () => {
+          expect(parsed[0].author).toBe('Luke');
+        });
+      });
+
+      describe('the message', () => {
+        it('should contain the correct message', () => {
+          expect(parsed[0].message).toBe('Hey!');
+        });
+      });
     });
 
-    it('should parse system messages correctly', () => {
+    describe('system messages', () => {
       const messages = [
         { system: true, msg: '06/03/2017, 00:45 - You created group "Test"' },
       ];
       const parsed = parseMessages(messages);
 
-      expect(parsed[0].date).toBe('06/03/2017');
-      expect(parsed[0].time).toBe('00:45');
-      expect(parsed[0].ampm).toBe(null);
-      expect(parsed[0].author).toBe('System');
-      expect(parsed[0].message).toBe('You created group "Test"');
+      describe('the date', () => {
+        it('should be an instance of the Date object', () => {
+          expect(parsed[0].date).toBeInstanceOf(Date);
+        });
+
+        it('should contain the correct date', () => {
+          expect(parsed[0].date.getFullYear()).toBe(2017);
+          expect(parsed[0].date.getMonth()).toBe(2);
+          expect(parsed[0].date.getDate()).toBe(6);
+        });
+
+        it('should contain the correct time', () => {
+          expect(parsed[0].date.getHours()).toBe(0);
+          expect(parsed[0].date.getMinutes()).toBe(45);
+          expect(parsed[0].date.getSeconds()).toBe(0);
+        });
+      });
+
+      describe('the author', () => {
+        it('should contain the correct author', () => {
+          expect(parsed[0].author).toBe('System');
+        });
+      });
+
+      describe('the message', () => {
+        it('should contain the correct message', () => {
+          expect(parsed[0].message).toBe('You created group "Test"');
+        });
+      });
     });
   });
 });
