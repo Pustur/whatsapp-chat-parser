@@ -5,6 +5,10 @@ describe('parser.js', () => {
     const multilineMessage = ['23/06/2018, 01:55 p.m. - Loris: one', 'two'];
     const systemMessage = ['06/03/2017, 00:45 - You created group "Test"'];
     const emptyMessage = ['03/02/17, 18:42 - Luke: '];
+    const multilineSystemMessage = [
+      '06/03/2017, 00:45 - You created group "Test"',
+      'This is another line',
+    ];
 
     it('should merge multiline messages', () => {
       expect(makeArrayOfMessages(multilineMessage)[0].msg).toBe(
@@ -20,6 +24,12 @@ describe('parser.js', () => {
        * still not be labeled as a system message
        */
       expect(makeArrayOfMessages(emptyMessage)[0].system).toBe(false);
+
+      /**
+       * In the unlikely case that whatsapp would start using multiline messages
+       * for system notifications we should account for it
+       */
+      expect(makeArrayOfMessages(multilineSystemMessage)[0].system).toBe(true);
     });
 
     it('should flag system messages', () => {

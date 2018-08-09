@@ -31,9 +31,10 @@ function makeArrayOfMessages(lines) {
       }
 
       // Else it's part of the previous message and it should be concatenated
-      return acc
-        .slice(0, -1)
-        .concat({ system: false, msg: `${acc.slice(-1)[0].msg}\n${line}` });
+      return acc.slice(0, -1).concat({
+        system: acc.slice(-1)[0].system,
+        msg: `${acc.slice(-1)[0].msg}\n${line}`,
+      });
     }
 
     return acc.concat({ system: false, msg: line });
