@@ -113,4 +113,20 @@ function changeFrequencyAnalysis(numericDates) {
   return null;
 }
 
-module.exports = { checkAbove12, checkDecreasing, changeFrequencyAnalysis };
+/**
+ * Takes year, month and day as strings and pads them as needed
+ */
+function normalizeDate(year, month, day) {
+  return [
+    year.padStart(4, '2000'),
+    month.padStart(2, '0'),
+    day.padStart(2, '0'),
+  ];
+}
+
+module.exports = {
+  checkAbove12,
+  checkDecreasing,
+  changeFrequencyAnalysis,
+  normalizeDate,
+};

@@ -2,6 +2,7 @@ const {
   checkAbove12,
   checkDecreasing,
   changeFrequencyAnalysis,
+  normalizeDate,
 } = require('./date.js');
 
 describe('date.js', () => {
@@ -68,6 +69,18 @@ describe('date.js', () => {
 
     it("should return null if it can't understand the order", () => {
       expect(changeFrequencyAnalysis(undetectable)).toBe(null);
+    });
+  });
+
+  describe('normalizeDate', () => {
+    const expected = ['2011', '03', '04'];
+
+    it('should return the correctly formatted date', () => {
+      expect(normalizeDate('11', '3', '4')).toEqual(expected);
+    });
+
+    it('should not alter an already correctly formatted date', () => {
+      expect(normalizeDate('2011', '03', '04')).toEqual(expected);
     });
   });
 });
