@@ -4,8 +4,9 @@ ignored/
 
 # This repo
 samples/
+.circleci/
 src/*.test.js
 .eslintrc
 .prettierignore
 .prettierrc
-.jest.config.js
+jest.config.js

@@ -2,6 +2,12 @@
 
 > A package to parse WhatsApp chat logs 💬
 
+## Install
+
+```
+$ npm install whatsapp-chat-parser
+```
+
 ## Usage
 
 ```javascript
