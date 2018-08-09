@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-chat-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A package to parse WhatsApp chats",
   "main": "src/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "format:staged": "pretty-quick --staged"
   },
   "engines": {
-    "node" : ">=8.0.0"
+    "node": ">=8.0.0"
   },
   "keywords": [
     "whatsapp",
@@ -24,7 +24,7 @@
   ],
   "homepage": "https://github.com/Pustur/whatsapp-chat-parser",
   "repository": {
-    "type" : "git",
+    "type": "git",
     "url": "https://github.com/Pustur/whatsapp-chat-parser"
   },
   "bugs": {
