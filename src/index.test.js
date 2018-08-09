@@ -14,14 +14,6 @@ describe('index.js', () => {
       return expect(whatsappParser.parseFile('')).rejects.toBeTruthy();
     });
 
-    it("should reject if the file has a different format than whatsapp's", () => {
-      expect.assertions(1);
-
-      return expect(
-        whatsappParser.parseFile('./samples/not-a-whatsapp-chat.txt'),
-      ).rejects.toBeTruthy();
-    });
-
     it('should return an empty array if an empty file is parsed', () => {
       expect.assertions(1);
 
