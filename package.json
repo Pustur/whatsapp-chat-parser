@@ -6,7 +6,7 @@
   "scripts": {
     "precommit": "npm run format:staged && npm run lint && npm t",
     "test": "jest --passWithNoTests",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "lint": "eslint src/**/*.js",
     "format": "pretty-quick",
@@ -19,6 +19,7 @@
     "whatsapp",
     "chat",
     "discussion",
+    "conversation",
     "log",
     "parser"
   ],
