@@ -50,7 +50,9 @@ function makeArrayOfMessages(lines) {
  * Given an array of messages, parses them and returns an object with the fields
  * date, author, message
  */
-function parseMessages(messages) {
+function parseMessages(messages, options = { daysFirst: undefined }) {
+  let { daysFirst } = options;
+
   // Parse messages with regex
   const parsed = messages.map(obj => {
     const { system, msg } = obj;
@@ -67,12 +69,15 @@ function parseMessages(messages) {
     return { date, time, ampm: ampm || null, author, message };
   });
 
-  // Understand date format (days come first?)
-  const numericDates = Array.from(
-    new Set(parsed.map(({ date }) => date)),
-    date => date.split(/[-/.]/).map(Number),
-  );
-  const daysFirst = daysBeforeMonths(numericDates);
+  // Understand date format if not supplied (days come first?)
+  if (typeof daysFirst !== 'boolean') {
+    const numericDates = Array.from(
+      new Set(parsed.map(({ date }) => date)),
+      date => date.split(/[-/.]/).map(Number),
+    );
+
+    daysFirst = daysBeforeMonths(numericDates);
+  }
 
   // Convert date/time in date object, return final object
   return parsed.map(({ date, time, ampm, author, message }) => {

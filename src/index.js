@@ -26,11 +26,11 @@ function readFile(filepath) {
  * Given a filepath it will try to open the file and parse its content
  * Returns a promise that will contain the parsed messages
  */
-function parseFile(filepath) {
+function parseFile(filepath, options) {
   return readFile(filepath)
     .then(data => data.split('\n'))
     .then(makeArrayOfMessages)
-    .then(parseMessages);
+    .then(messages => parseMessages(messages, options));
 }
 
 module.exports = { parseFile };

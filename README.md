@@ -52,6 +52,29 @@ In the case of a system message, the author will be `System`
 ];
 ```
 
+## API
+
+### parseFile(filepath, [options]) → Promise
+
+#### filepath
+
+Type: `string`
+
+Path to the file to parse.
+
+#### options
+
+Type: `object`
+
+##### daysFirst
+
+Type: `boolean`  
+Default: `undefined`
+
+Specify if your log file's date starts with a day (`true`) or a month (`false`).  
+Manually specifying this may improve performance.  
+By default the program will try to infer this information using 3 different methods (look at [`date.js`](src/date.js) for the implementation), if all fails it defaults to interpret the first digit as the day.
+
 ## Technologies used
 
 - Testing: [Jest](https://jestjs.io/)

@@ -150,5 +150,20 @@ describe('parser.js', () => {
         });
       });
     });
+
+    describe('options', () => {
+      describe('daysFirst', () => {
+        const messages = [{ system: false, msg: '3/6/18, 1:55 p.m. - a: m' }];
+        const parsedDayFirst = parseMessages(messages, { daysFirst: true });
+        const parsedMonthFirst = parseMessages(messages, { daysFirst: false });
+
+        it('should allow the user to define if days come first or not', () => {
+          expect(parsedDayFirst[0].date.getDate()).toBe(3);
+          expect(parsedDayFirst[0].date.getMonth()).toBe(5);
+          expect(parsedMonthFirst[0].date.getDate()).toBe(6);
+          expect(parsedMonthFirst[0].date.getMonth()).toBe(2);
+        });
+      });
+    });
   });
 });
