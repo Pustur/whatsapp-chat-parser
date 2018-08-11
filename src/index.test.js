@@ -6,12 +6,6 @@ describe('index.js', () => {
       './samples/short-chat.txt',
     );
 
-    it('should reject if no filepath is given', () => {
-      expect.assertions(1);
-
-      return expect(whatsappParser.parseFile()).rejects.toBeTruthy();
-    });
-
     it('should reject if no file is found', () => {
       expect.assertions(1);
 
