@@ -56,24 +56,33 @@ In the case of a system message, the author will be `System`
 
 ### parseFile(filepath, [options]) → Promise
 
-#### filepath
+**filepath**
 
 Type: `string`
 
 Path to the file to parse.
 
-#### options
+**options**
 
 Type: `object`
 
-##### daysFirst
+### parseString(string, [options]) → Promise
 
-Type: `boolean`  
-Default: `undefined`
+**string**
 
-Specify if your log file's date starts with a day (`true`) or a month (`false`).  
-Manually specifying this may improve performance.  
-By default the program will try to infer this information using 3 different methods (look at [`date.js`](src/date.js) for the implementation), if all fails it defaults to interpret the first digit as the day.
+Type: `string`
+
+Raw string of the WhatsApp conversation
+
+**options**
+
+Type: `object`
+
+## Options
+
+| Name      | Type      | Default     | Description                                                                                                                                                                                                                                                                                                                                         |
+| :-------- | :-------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| daysFirst | `Boolean` | `undefined` | Specify if your log file's date starts with a day (`true`) or a month (`false`). Manually specifying this may improve performance. By default the program will try to infer this information using 3 different methods (look at [`date.js`](src/date.js) for the implementation), if all fails it defaults to interpret the first digit as the day. |
 
 ## Technologies used
 
@@ -84,6 +93,10 @@ By default the program will try to infer this information using 3 different meth
 ## Requirements
 
 `Node.js >= 8.0.0`
+
+## Changelog
+
+[CHANGELOG](CHANGELOG)
 
 ## License
 
