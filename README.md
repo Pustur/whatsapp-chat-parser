@@ -80,9 +80,11 @@ Type: `object`
 
 ## Options
 
-| Name      | Type      | Default     | Description                                                                                                                                                                                                                                                                                                                                         |
-| :-------- | :-------- | :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+<!-- prettier-ignore-start -->
+| Name | Type | Default | Description |
+| :--- | :--- | :--- | :--- |
 | daysFirst | `Boolean` | `undefined` | Specify if your log file's date starts with a day (`true`) or a month (`false`). Manually specifying this may improve performance. By default the program will try to infer this information using 3 different methods (look at [`date.js`](src/date.js) for the implementation), if all fails it defaults to interpret the first digit as the day. |
+<!-- prettier-ignore-end -->
 
 ## Technologies used
 
@@ -96,7 +98,7 @@ Type: `object`
 
 ## Changelog
 
-[CHANGELOG](CHANGELOG)
+[CHANGELOG](CHANGELOG.md)
 
 ## License
 
