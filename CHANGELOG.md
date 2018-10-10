@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.2.1] - 2018-10-10
+
+### Fixed
+
+- Disable prettier for table in readme
+- Wrong changelog's link in readme
+
 ## [1.2.0] - 2018-10-10
 
 ### Added
