@@ -1,12 +1,12 @@
 {
   "name": "whatsapp-chat-parser",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A package to parse WhatsApp chats",
   "main": "src/index.js",
   "scripts": {
     "precommit": "npm run format:staged && npm run lint && npm t",
     "test": "jest --passWithNoTests",
-    "test:watch": "jest --watch",
+    "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "lint": "eslint src/**/*.js",
     "format": "pretty-quick",
@@ -19,6 +19,7 @@
     "whatsapp",
     "chat",
     "discussion",
+    "conversation",
     "log",
     "parser"
   ],

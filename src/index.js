@@ -1,25 +1,21 @@
 const fs = require('fs');
 const path = require('path');
+const util = require('util');
 const { makeArrayOfMessages, parseMessages } = require('./parser.js');
 
 /**
- * Reads a file and returns a promise that will resolve with the data or reject
- * with the error
+ * Just like fs.readFile but returns a promise
  */
-function readFile(filepath) {
-  return new Promise((resolve, reject) => {
-    fs.readFile(
-      path.resolve(process.env.PWD, filepath),
-      'utf8',
-      (err, data) => {
-        if (err) {
-          reject(err);
-        }
+const readFile = util.promisify(fs.readFile);
 
-        resolve(data);
-      },
-    );
-  });
+/**
+ * Given a promise that will resolve in a string it will process and parse it
+ */
+function processPromiseResult(promise, options) {
+  return promise
+    .then(data => data.split('\n'))
+    .then(makeArrayOfMessages)
+    .then(messages => parseMessages(messages, options));
 }
 
 /**
@@ -27,10 +23,18 @@ function readFile(filepath) {
  * Returns a promise that will contain the parsed messages
  */
 function parseFile(filepath, options) {
-  return readFile(filepath)
-    .then(data => data.split('\n'))
-    .then(makeArrayOfMessages)
-    .then(messages => parseMessages(messages, options));
+  return processPromiseResult(
+    readFile(path.resolve(process.env.PWD, filepath), 'utf8'),
+    options,
+  );
 }
 
-module.exports = { parseFile };
+/**
+ * Given a string it will parse its content
+ * Returns a promise that will contain the parsed messages
+ */
+function parseString(string, options) {
+  return processPromiseResult(Promise.resolve(string), options);
+}
+
+module.exports = { parseFile, parseString };
