@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.2.2] - 2018-11-13
+
+### Changed
+
+- Upgraded dev dependencies
+
 ## [1.2.1] - 2018-10-10
 
 ### Fixed
