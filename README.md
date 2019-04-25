@@ -1,5 +1,7 @@
 # WhatsApp Chat Parser
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Pustur/whatsapp-chat-parser.svg)](https://greenkeeper.io/)
+
 > A package to parse WhatsApp chat logs 💬
 
 ## Install
