@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.2.4] - 2019-04-25
+
+### Fixed
+
+- Unsupported regex flag 's' in node 8
+
 ## [1.2.3] - 2019-04-25
 
 ### Changed

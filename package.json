@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-chat-parser",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A package to parse WhatsApp chats",
   "main": "src/index.js",
   "scripts": {
