@@ -44,7 +44,7 @@
     "husky": "2.3.0",
     "jest": "24.7.1",
     "prettier": "1.17.1",
-    "pretty-quick": "1.10.0"
+    "pretty-quick": "1.11.0"
   },
   "husky": {
     "hooks": {
