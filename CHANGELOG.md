@@ -1,4 +1,10 @@
-# Change Log
+# Changelog
+
+## [2.0.0] - 2019-05-19
+
+### Added
+
+- Browser support
 
 ## [1.2.4] - 2019-04-25
 
