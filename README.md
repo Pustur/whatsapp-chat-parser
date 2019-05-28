@@ -13,7 +13,7 @@ $ npm install whatsapp-chat-parser
 ## Usage
 
 ```javascript
-const fs = require('fs)
+const fs = require('fs');
 const chatParser = require('whatsapp-chat-parser');
 
 const fileContents = fs.readFileSync('path/to/file.txt', 'utf8');
