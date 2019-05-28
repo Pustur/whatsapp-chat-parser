@@ -2,17 +2,23 @@
   "name": "whatsapp-chat-parser",
   "version": "2.0.0",
   "description": "A package to parse WhatsApp chats",
-  "browser": "dist/whatsapp-chat-parser.js",
-  "main": "src/index.js",
+  "main": "dist/whatsapp-chat-parser.js",
+  "files": [
+    "dist/",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rm -rf dist/ && rollup -c",
+    "pretest": "npm run build",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "lint": "eslint src/**/*.js",
     "format": "pretty-quick",
     "format:staged": "pretty-quick --staged",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "engines": {
     "node": ">=8.3.0"

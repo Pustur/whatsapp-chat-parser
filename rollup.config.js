@@ -13,7 +13,8 @@ export default [
     input,
     output: {
       name,
-      file: pkg.browser,
+      file: pkg.main,
+      sourcemap: true,
       format,
       exports,
     },
@@ -23,7 +24,7 @@ export default [
     input,
     output: {
       name,
-      file: pkg.browser.replace(/\.js$/, '.min.js'),
+      file: pkg.main.replace(/\.js$/, '.min.js'),
       format,
       exports,
     },
