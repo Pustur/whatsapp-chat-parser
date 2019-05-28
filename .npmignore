@@ -4,6 +4,7 @@ ignored/
 
 # This repo
 .circleci/
+dist/
 src/*.test.js
 .eslintrc
 .prettierignore
