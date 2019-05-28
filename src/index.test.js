@@ -2,7 +2,7 @@ const whatsappParser = require('./index.js');
 
 describe('index.js', () => {
   describe('parseString', () => {
-    const shortChatPromise = whatsappParser(
+    const shortChatPromise = whatsappParser.parseString(
       `06/03/2017, 00:45 - Messages to this group are now secured with end-to-end encryption. Tap for more info.
 06/03/2017, 00:45 - You created group "ShortChat"
 06/03/2017, 00:45 - Sample User: This is a test message
@@ -16,7 +16,7 @@ Is everything alright?
     it('should return an empty array if an empty string is parsed', () => {
       expect.assertions(1);
 
-      return expect(whatsappParser('')).resolves.toEqual([]);
+      return expect(whatsappParser.parseString('')).resolves.toEqual([]);
     });
 
     it('should contain a correct amount of parsed messages', () => {

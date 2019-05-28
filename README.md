@@ -14,11 +14,12 @@ $ npm install whatsapp-chat-parser
 
 ```javascript
 const fs = require('fs');
-const chatParser = require('whatsapp-chat-parser');
+const whatsapp = require('whatsapp-chat-parser');
 
 const fileContents = fs.readFileSync('path/to/file.txt', 'utf8');
 
-chatParser(fileContents)
+whatsapp
+  .parseString(fileContents)
   .then(messages => {
     // Do whatever you want with messages
   })
@@ -58,7 +59,7 @@ In the case of a system message, the author will be `System`
 
 ## API
 
-### chatParser(string, [options]) → Promise
+### parseString(string, [options]) → Promise
 
 **string**
 

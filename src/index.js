@@ -18,4 +18,4 @@ function parseString(string, options) {
   return processPromiseResult(Promise.resolve(string), options);
 }
 
-module.exports = parseString;
+module.exports = { parseString };
