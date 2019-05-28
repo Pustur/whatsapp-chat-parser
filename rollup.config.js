@@ -5,9 +5,10 @@ export default [
   {
     input: 'src/index.js',
     output: {
-      name: 'whatsapp-chat-parser',
+      name: 'whatsappChatParser',
       file: pkg.browser,
       format: 'umd',
+      exports: 'named',
     },
     plugins: [commonjs()],
   },
