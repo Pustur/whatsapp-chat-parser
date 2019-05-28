@@ -2,7 +2,7 @@
   "name": "whatsapp-chat-parser",
   "version": "2.0.0",
   "description": "A package to parse WhatsApp chats",
-  "browser": "dist/whatsapp-parser.umd.js",
+  "browser": "dist/whatsapp-chat-parser.js",
   "main": "src/index.js",
   "scripts": {
     "build": "rollup -c",
