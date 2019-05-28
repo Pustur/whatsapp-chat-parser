@@ -1,15 +1,18 @@
 {
   "name": "whatsapp-chat-parser",
-  "version": "1.2.4",
+  "version": "2.0.0",
   "description": "A package to parse WhatsApp chats",
+  "browser": "dist/whatsapp-parser.umd.js",
   "main": "src/index.js",
   "scripts": {
+    "build": "rollup -c",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "lint": "eslint src/**/*.js",
     "format": "pretty-quick",
-    "format:staged": "pretty-quick --staged"
+    "format:staged": "pretty-quick --staged",
+    "prepublish": "npm run build"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -42,9 +45,11 @@
     "eslint-plugin-import": "2.17.3",
     "eslint-plugin-prettier": "3.1.0",
     "husky": "2.3.0",
-    "jest": "24.7.1",
+    "jest": "24.8.0",
     "prettier": "1.17.1",
-    "pretty-quick": "1.11.0"
+    "pretty-quick": "1.11.0",
+    "rollup": "^1.12.3",
+    "rollup-plugin-commonjs": "^10.0.0"
   },
   "husky": {
     "hooks": {
