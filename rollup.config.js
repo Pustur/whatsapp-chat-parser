@@ -7,9 +7,6 @@ const input = 'src/index.js';
 const name = 'whatsappChatParser';
 const format = 'umd';
 const exports = 'named';
-const babelOptions = {
-  exclude: 'node_modules/**',
-};
 
 export default [
   {
@@ -20,7 +17,7 @@ export default [
       format,
       exports,
     },
-    plugins: [babel(babelOptions), commonjs()],
+    plugins: [commonjs(), babel()],
   },
   {
     input,
@@ -30,6 +27,6 @@ export default [
       format,
       exports,
     },
-    plugins: [babel(babelOptions), commonjs(), uglify()],
+    plugins: [commonjs(), babel(), uglify()],
   },
 ];
