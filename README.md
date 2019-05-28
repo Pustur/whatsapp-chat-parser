@@ -86,7 +86,7 @@ Type: `object`
 
 ## Requirements
 
-`Node.js >= 8.0.0`
+`Node.js >= 8.3.0`
 
 ## Changelog
 
