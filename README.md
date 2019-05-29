@@ -12,6 +12,8 @@ $ npm install whatsapp-chat-parser
 
 ## Usage
 
+### Node
+
 ```javascript
 const fs = require('fs');
 const whatsapp = require('whatsapp-chat-parser');
@@ -27,6 +29,27 @@ whatsapp
     // Something went wrong
   });
 ```
+
+### Browser
+
+Add the script to your HTML file (usually just before the closing `</body>` tag).  
+Then use it in your JavaScript code, the `whatsappChatParser` variable will be globally available.
+
+```html
+<script src="path/to/whatsapp-chat-parser.min.js"></script>
+<script>
+  whatsappChatParser
+    .parseString('06/03/2017, 00:45 - Sample User: This is a test message')
+    .then(messages => {
+      // Do whatever you want with messages
+    })
+    .catch(err => {
+      // Something went wrong
+    });
+</script>
+```
+
+&nbsp;
 
 The `messages` variable is an array of objects like this:
 
@@ -87,7 +110,14 @@ Type: `object`
 
 ## Requirements
 
+### Node
+
 `Node.js >= 8.3.0`
+
+### Browser
+
+This package is written in ES6 and transpiled to ES5.  
+It should work in all relevant browsers but at the moment I have no time to test it and provide an official compatibility table. So no guarantees, sorry.
 
 ## Changelog
 
