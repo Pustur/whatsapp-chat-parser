@@ -5,6 +5,7 @@ import pkg from './package.json';
 
 const input = 'src/index.js';
 const name = 'whatsappChatParser';
+const sourcemap = true;
 const format = 'umd';
 const exports = 'named';
 
@@ -14,7 +15,7 @@ export default [
     output: {
       name,
       file: pkg.main,
-      sourcemap: true,
+      sourcemap,
       format,
       exports,
     },
@@ -25,6 +26,7 @@ export default [
     output: {
       name,
       file: pkg.main.replace(/\.js$/, '.min.js'),
+      sourcemap,
       format,
       exports,
     },
