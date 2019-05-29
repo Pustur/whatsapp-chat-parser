@@ -4,10 +4,7 @@
   "description": "A package to parse WhatsApp chats",
   "main": "dist/whatsapp-chat-parser.js",
   "files": [
-    "dist/",
-    "CHANGELOG.md",
-    "README.md",
-    "LICENSE"
+    "dist/"
   ],
   "scripts": {
     "build": "rm -rf dist/ && rollup -c",
