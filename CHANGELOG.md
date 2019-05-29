@@ -1,4 +1,14 @@
-# Change Log
+# Changelog
+
+## [2.0.0] - 2019-05-29
+
+### Added
+
+- Browser support (Thanks [@Mintonne](https://github.com/Mintonne))
+
+### Removed
+
+- `parseFile` method (Node users can still read the file in their code and pass the file contents to the `parseString` function)
 
 ## [1.2.4] - 2019-04-25
 

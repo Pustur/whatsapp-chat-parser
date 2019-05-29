@@ -1,18 +1,24 @@
 {
   "name": "whatsapp-chat-parser",
-  "version": "1.2.4",
+  "version": "2.0.0",
   "description": "A package to parse WhatsApp chats",
-  "main": "src/index.js",
+  "main": "dist/whatsapp-chat-parser.js",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
+    "build": "rm -rf dist/ && rollup -c",
+    "pretest": "npm run build",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --coverage",
     "lint": "eslint src/**/*.js",
     "format": "pretty-quick",
-    "format:staged": "pretty-quick --staged"
+    "format:staged": "pretty-quick --staged",
+    "prepublishOnly": "npm run build"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=8.3.0"
   },
   "keywords": [
     "whatsapp",
@@ -36,15 +42,21 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "7.4.5",
+    "@babel/preset-env": "7.4.5",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-config-prettier": "4.3.0",
     "eslint-plugin-import": "2.17.3",
     "eslint-plugin-prettier": "3.1.0",
     "husky": "2.3.0",
-    "jest": "24.7.1",
+    "jest": "24.8.0",
     "prettier": "1.17.1",
-    "pretty-quick": "1.11.0"
+    "pretty-quick": "1.11.0",
+    "rollup": "1.12.4",
+    "rollup-plugin-babel": "4.3.2",
+    "rollup-plugin-commonjs": "10.0.0",
+    "rollup-plugin-uglify": "6.0.2"
   },
   "husky": {
     "hooks": {
