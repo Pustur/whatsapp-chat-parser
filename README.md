@@ -49,6 +49,12 @@ Then use it in your JavaScript code, the `whatsappChatParser` variable will be g
 </script>
 ```
 
+You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsapp-chat-parser).
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/whatsapp-chat-parser.min.js"></script>
+```
+
 &nbsp;
 
 The `messages` variable is an array of objects like this:
@@ -101,6 +107,12 @@ Type: `object`
 | :--- | :--- | :--- | :--- |
 | daysFirst | `Boolean` | `undefined` | Specify if your log file's date starts with a day (`true`) or a month (`false`). Manually specifying this may improve performance. By default the program will try to infer this information using 3 different methods (look at [`date.js`](src/date.js) for the implementation), if all fails it defaults to interpret the first digit as the day. |
 <!-- prettier-ignore-end -->
+
+## How to export WhatsApp chats
+
+- [Android](https://faq.whatsapp.com/en/android/23756533/)
+- [iPhone](https://faq.whatsapp.com/en/iphone/20888066/#email)
+- [Windows Phone](https://faq.whatsapp.com/en/wp/22548236)
 
 ## Technologies used
 
