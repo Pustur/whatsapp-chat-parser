@@ -1,10 +1,16 @@
 # Changelog
 
+## [2.0.1] - 2019-05-31
+
+### Changed
+
+- Massive performance improvements on parsing times [#12](https://github.com/Pustur/whatsapp-chat-parser/issues/12)
+
 ## [2.0.0] - 2019-05-29
 
 ### Added
 
-- Browser support (Thanks [@Mintonne](https://github.com/Mintonne))
+- Browser support [#10](https://github.com/Pustur/whatsapp-chat-parser/pull/10) (Thanks [@Mintonne](https://github.com/Mintonne))
 
 ### Removed
 

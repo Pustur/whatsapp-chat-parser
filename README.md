@@ -1,6 +1,7 @@
 # WhatsApp Chat Parser
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/Pustur/whatsapp-chat-parser.svg)](https://greenkeeper.io/)
+[![CircleCI](https://circleci.com/gh/Pustur/whatsapp-chat-parser/tree/master.svg?style=svg)](https://circleci.com/gh/Pustur/whatsapp-chat-parser/tree/master)
 
 > A package to parse WhatsApp chat logs 💬
 
@@ -53,6 +54,8 @@ You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsap
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/whatsapp-chat-parser.min.js"></script>
+<!-- Or use a specific version -->
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@2.0.1/dist/whatsapp-chat-parser.min.js"></script>
 ```
 
 &nbsp;

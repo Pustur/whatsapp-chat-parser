@@ -27,22 +27,23 @@ function makeArrayOfMessages(lines) {
        * it should be considered a "whatsapp event" so it gets labeled "system"
        */
       if (regexStartsWithDateTime.test(line)) {
-        return acc.concat({ system: true, msg: line });
-      }
-
-      // Last element not set, just skip this (might be an empty file)
-      if (typeof acc.slice(-1)[0] === 'undefined') {
-        return acc;
+        acc.push({ system: true, msg: line });
       }
 
       // Else it's part of the previous message and it should be concatenated
-      return acc.slice(0, -1).concat({
-        system: acc.slice(-1)[0].system,
-        msg: `${acc.slice(-1)[0].msg}\n${line}`,
-      });
+      else if (typeof acc[acc.length - 1] !== 'undefined') {
+        const prevMessage = acc.pop();
+
+        acc.push({
+          system: prevMessage.system,
+          msg: `${prevMessage.msg}\n${line}`,
+        });
+      }
+    } else {
+      acc.push({ system: false, msg: line });
     }
 
-    return acc.concat({ system: false, msg: line });
+    return acc;
   }, []);
 }
 
