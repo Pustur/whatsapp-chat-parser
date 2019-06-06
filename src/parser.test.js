@@ -132,11 +132,15 @@ describe('parser.js', () => {
       const format2 = [{ system: false, msg: '03-06-2018, 01.55 PM - a: m' }];
       const format3 = [{ system: false, msg: '13.06.18 21.25.15: a: m' }];
       const format4 = [{ system: false, msg: '[06.13.18 21:25:15] a: m' }];
+      const format5 = [{ system: false, msg: '13.6.2018 klo 21.25.15 - a: m' }];
+      const format6 = [{ system: false, msg: '13. 6. 2018. 21:25:15 a: m' }];
 
       const parsed1 = parseMessages(format1);
       const parsed2 = parseMessages(format2);
       const parsed3 = parseMessages(format3);
       const parsed4 = parseMessages(format4);
+      const parsed5 = parseMessages(format5);
+      const parsed6 = parseMessages(format6);
 
       const expected1 = '2018-06-03T13:55:00.000Z';
       const expected2 = '2018-06-13T21:25:15.000Z';
@@ -147,6 +151,8 @@ describe('parser.js', () => {
           expect(parsed2[0].date.toISOString()).toBe(expected1);
           expect(parsed3[0].date.toISOString()).toBe(expected2);
           expect(parsed4[0].date.toISOString()).toBe(expected2);
+          expect(parsed5[0].date.toISOString()).toBe(expected2);
+          expect(parsed6[0].date.toISOString()).toBe(expected2);
         });
       });
     });

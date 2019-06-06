@@ -6,10 +6,10 @@ const {
   normalizeTime,
 } = require('./time.js');
 
-const regexParser = /\[?(\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}),? (\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
-const regexParserSystem = /\[?(\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}),? (\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?(?: -|:)? ([^]+)/i;
-const regexStartsWithDateTime = /\[?(\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}),? (\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?/i;
-const regexSplitDate = /[-/.]/;
+const regexParser = /\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
+const regexParserSystem = /\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?(?: -|:)? ([^]+)/i;
+const regexStartsWithDateTime = /\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?/i;
+const regexSplitDate = /[-/.] ?/;
 
 /**
  * Given an array of lines, detects the lines that are part of a previous
