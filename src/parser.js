@@ -1,5 +1,6 @@
 const { daysBeforeMonths, normalizeDate } = require('./date.js');
 const {
+  regexSplitTime,
   convertTime12to24,
   normalizeAMPM,
   normalizeTime,
@@ -8,6 +9,7 @@ const {
 const regexParser = /\[?(\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}),? (\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
 const regexParserSystem = /\[?(\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}),? (\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?(?: -|:)? ([^]+)/i;
 const regexStartsWithDateTime = /\[?(\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}),? (\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?m\.?))?\]?/i;
+const regexSplitDate = /[-/.]/;
 
 /**
  * Given an array of lines, detects the lines that are part of a previous
@@ -74,7 +76,7 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
   if (typeof daysFirst !== 'boolean') {
     const numericDates = Array.from(
       new Set(parsed.map(({ date }) => date)),
-      date => date.split(/[-/.]/).map(Number),
+      date => date.split(regexSplitDate).map(Number),
     );
 
     daysFirst = daysBeforeMonths(numericDates);
@@ -87,16 +89,16 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
     let year;
 
     if (daysFirst === false) {
-      [month, day, year] = date.split(/[-/.]/);
+      [month, day, year] = date.split(regexSplitDate);
     } else {
-      [day, month, year] = date.split(/[-/.]/);
+      [day, month, year] = date.split(regexSplitDate);
     }
 
     [year, month, day] = normalizeDate(year, month, day);
 
     const [hours, minutes, seconds] = normalizeTime(
       ampm ? convertTime12to24(time, normalizeAMPM(ampm)) : time,
-    ).split(/[:.]/);
+    ).split(regexSplitTime);
 
     return {
       date: new Date(year, month - 1, day, hours, minutes, seconds),
