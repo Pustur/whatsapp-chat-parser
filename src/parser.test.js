@@ -131,22 +131,22 @@ describe('parser.js', () => {
       const format1 = [{ system: false, msg: '3/6/18, 1:55 p.m. - a: m' }];
       const format2 = [{ system: false, msg: '03-06-2018, 01.55 PM - a: m' }];
       const format3 = [{ system: false, msg: '13.06.18 21.25.15: a: m' }];
-      const format4 = [{ system: false, msg: '[03.13.18 21:25:15] a: m' }];
+      const format4 = [{ system: false, msg: '[06.13.18 21:25:15] a: m' }];
+
       const parsed1 = parseMessages(format1);
       const parsed2 = parseMessages(format2);
       const parsed3 = parseMessages(format3);
       const parsed4 = parseMessages(format4);
 
+      const expected1 = '2018-06-03T13:55:00.000Z';
+      const expected2 = '2018-06-13T21:25:15.000Z';
+
       describe('the date', () => {
         it('should be parsed correctly in various formats', () => {
-          /**
-           * Checking for the year should be enough to know there were no errors
-           * in parsing a specific format
-           */
-          expect(parsed1[0].date.getFullYear()).toBe(2018);
-          expect(parsed2[0].date.getFullYear()).toBe(2018);
-          expect(parsed3[0].date.getFullYear()).toBe(2018);
-          expect(parsed4[0].date.getFullYear()).toBe(2018);
+          expect(parsed1[0].date.toISOString()).toBe(expected1);
+          expect(parsed2[0].date.toISOString()).toBe(expected1);
+          expect(parsed3[0].date.toISOString()).toBe(expected2);
+          expect(parsed4[0].date.toISOString()).toBe(expected2);
         });
       });
     });
