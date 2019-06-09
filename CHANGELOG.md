@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.2] - 2019-06-09
+
+### Added
+
+- Ability to parse more date formats, including Finnish, that look something like this: `31.5.2019 klo 16.58 - <author>: <message>`
+
 ## [2.0.1] - 2019-05-31
 
 ### Changed
