@@ -1,0 +1,5 @@
+{
+  "extends": ["config:base", "schedule:earlyMondays"],
+  "baseBranches": ["develop"],
+  "circleci": { "enabled": false }
+}
