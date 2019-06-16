@@ -2,7 +2,7 @@ const {
   indexAboveValue,
   isNegative,
   groupArrayByValueAtIndex,
-} = require('./utils.js');
+} = require('../../src/utils.js');
 
 describe('utils.js', () => {
   describe('indexAboveValue', () => {

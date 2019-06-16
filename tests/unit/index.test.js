@@ -1,4 +1,4 @@
-const whatsappParser = require('../dist/whatsapp-chat-parser.min.js');
+const whatsappParser = require('../../dist/whatsapp-chat-parser.min.js');
 
 describe('index.js', () => {
   describe('parseString', () => {
