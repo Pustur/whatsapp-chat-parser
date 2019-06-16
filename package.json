@@ -9,13 +9,15 @@
   "scripts": {
     "build": "rimraf dist/ && rollup -c",
     "pretest": "npm run build",
-    "test": "jest --passWithNoTests",
-    "test:watch": "jest --watchAll",
-    "test:coverage": "jest --coverage",
+    "test": "jest",
+    "test:watch": "jest tests/unit --watchAll",
+    "test:coverage": "jest tests/unit --coverage",
+    "test:unit": "jest tests/unit",
+    "test:integration": "npm run build && jest tests/integration",
     "lint": "eslint src/**/*.js",
     "format": "pretty-quick",
     "format:staged": "pretty-quick --staged",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run test:integration"
   },
   "engines": {
     "node": ">=8.3.0"
@@ -62,7 +64,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format:staged && npm run lint && npm t"
+      "pre-commit": "npm run format:staged && npm run lint && npm run test:unit"
     }
   }
 }
