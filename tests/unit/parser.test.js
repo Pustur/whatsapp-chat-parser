@@ -1,4 +1,4 @@
-const { makeArrayOfMessages, parseMessages } = require('./parser.js');
+const { makeArrayOfMessages, parseMessages } = require('../../src/parser.js');
 
 describe('parser.js', () => {
   describe('makeArrayOfMessages', () => {

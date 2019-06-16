@@ -3,7 +3,7 @@ const {
   checkDecreasing,
   changeFrequencyAnalysis,
   normalizeDate,
-} = require('./date.js');
+} = require('../../src/date.js');
 
 describe('date.js', () => {
   describe('checkAbove12', () => {
