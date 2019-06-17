@@ -1,5 +1,23 @@
 # Changelog
 
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [2.0.3] - 2019-06-17
+
+### Changed
+
+- Test both `src` and `dist` files [#28](https://github.com/Pustur/whatsapp-chat-parser/issues/28) (Thanks [@LambdaFalcon](https://github.com/LambdaFalcon))
+- Replaced [Greenkeeper](https://greenkeeper.io/) with [Renovate](https://renovatebot.com/)
+- Readme badges (npm version, package size)
+- Improved changelog
+
+### Fixed
+
+- Windows issues with `rm -rf` [#29](https://github.com/Pustur/whatsapp-chat-parser/issues/29) and timezone settings in tests [#28](https://github.com/Pustur/whatsapp-chat-parser/issues/28) (Thanks [@Mintonne](https://github.com/Mintonne))
+
 ## [2.0.2] - 2019-06-09
 
 ### Added
@@ -81,3 +99,16 @@
 ## [1.0.0] - 2018-08-09
 
 - Initial release
+
+[2.0.3]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.2...2.0.3
+[2.0.2]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.1...2.0.2
+[2.0.1]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.0...2.0.1
+[2.0.0]: https://github.com/Pustur/whatsapp-chat-parser/compare/1.2.4...2.0.0
+[1.2.4]: https://github.com/Pustur/whatsapp-chat-parser/compare/1.2.3...1.2.4
+[1.2.3]: https://github.com/Pustur/whatsapp-chat-parser/compare/1.2.2...1.2.3
+[1.2.2]: https://github.com/Pustur/whatsapp-chat-parser/compare/1.2.1...1.2.2
+[1.2.1]: https://github.com/Pustur/whatsapp-chat-parser/compare/1.2.0...1.2.1
+[1.2.0]: https://github.com/Pustur/whatsapp-chat-parser/compare/1.1.0...1.2.0
+[1.1.0]: https://github.com/Pustur/whatsapp-chat-parser/compare/1.0.1...1.1.0
+[1.0.1]: https://github.com/Pustur/whatsapp-chat-parser/compare/1.0.0...1.0.1
+[1.0.0]: https://github.com/Pustur/whatsapp-chat-parser/releases/tag/1.0.0

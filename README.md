@@ -1,6 +1,8 @@
 # WhatsApp Chat Parser
 
 [![CircleCI](https://circleci.com/gh/Pustur/whatsapp-chat-parser/tree/master.svg?style=svg)](https://circleci.com/gh/Pustur/whatsapp-chat-parser/tree/master)
+[![npm version](https://img.shields.io/npm/v/whatsapp-chat-parser.svg)](https://www.npmjs.com/package/whatsapp-chat-parser)
+[![minified size](https://img.shields.io/bundlephobia/min/whatsapp-chat-parser.svg)](https://bundlephobia.com/result?p=whatsapp-chat-parser)
 
 > A package to parse WhatsApp chat logs 💬
 
