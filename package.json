@@ -57,7 +57,7 @@
     "pretty-quick": "1.11.1",
     "rimraf": "2.6.3",
     "rollup": "1.16.2",
-    "rollup-plugin-babel": "4.3.2",
+    "rollup-plugin-babel": "4.3.3",
     "rollup-plugin-commonjs": "10.0.0",
     "rollup-plugin-uglify": "6.0.2",
     "set-tz": "0.2.0"
