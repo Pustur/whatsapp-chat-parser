@@ -44,8 +44,8 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.4.5",
-    "@babel/preset-env": "7.4.5",
+    "@babel/core": "7.5.0",
+    "@babel/preset-env": "7.5.0",
     "eslint": "6.0.1",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-config-prettier": "5.1.0",
