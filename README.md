@@ -6,6 +6,9 @@
 
 > A package to parse WhatsApp chat logs 💬
 
+You can test the package online with this example website:  
+[whatsapp-chat-parser.netlify.com](https://whatsapp-chat-parser.netlify.com/) ([Source code](https://github.com/Pustur/whatsapp-chat-parser-website))
+
 ## Install
 
 ```
@@ -56,7 +59,7 @@ You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsap
 ```html
 <script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/whatsapp-chat-parser.min.js"></script>
 <!-- Or use a specific version -->
-<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@2.0.3/dist/whatsapp-chat-parser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@2.0.4/dist/whatsapp-chat-parser.min.js"></script>
 ```
 
 &nbsp;
