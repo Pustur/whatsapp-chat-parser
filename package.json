@@ -20,7 +20,7 @@
     "prepublishOnly": "npm run test:integration"
   },
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=8.0.0"
   },
   "keywords": [
     "whatsapp",

@@ -131,7 +131,7 @@ Type: `object`
 
 ### Node
 
-`Node.js >= 8.3.0`
+`Node.js >= 8.0.0`
 
 ### Browser
 
