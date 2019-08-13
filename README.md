@@ -107,12 +107,14 @@ Raw string of the WhatsApp conversation
 
 Type: `object`
 
+A configuration object, more details below
+
 ## Options
 
 <!-- prettier-ignore-start -->
 | Name | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| daysFirst | `Boolean` | `undefined` | Specify if your log file's date starts with a day (`true`) or a month (`false`). Manually specifying this may improve performance. By default the program will try to infer this information using 3 different methods (look at [`date.js`](src/date.js) for the implementation), if all fails it defaults to interpret the first digit as the day. |
+| daysFirst | `Boolean` | `undefined` | Specify if the dates in your log file start with a day (`true`) or a month (`false`). Manually specifying this may improve performance. By default the program will try to infer this information using 3 different methods (look at [`date.js`](src/date.js) for the implementation), if all fails it defaults to interpret the first digit as the day. |
 <!-- prettier-ignore-end -->
 
 ## How to export WhatsApp chats
@@ -136,7 +138,8 @@ Type: `object`
 ### Browser
 
 This package is written in ES6 and transpiled to ES5.  
-It should work in all relevant browsers but at the moment I have no time to test it and provide an official compatibility table. So no guarantees, sorry.
+It should work in all relevant browsers.  
+If the browsers you're targeting support [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) / [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) / [String.prototype.padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) you're probably good to go.
 
 ## Changelog
 
