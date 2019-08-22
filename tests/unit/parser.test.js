@@ -134,7 +134,7 @@ describe('parser.js', () => {
       const format4 = [{ system: false, msg: '[06.13.18 21:25:15] a: m' }];
       const format5 = [{ system: false, msg: '13.6.2018 klo 21.25.15 - a: m' }];
       const format6 = [{ system: false, msg: '13. 6. 2018. 21:25:15 a: m' }];
-      const format7 = [{ system: false, msg: '‎[3/6/18 1:55:00 p. m.] a: m' }];
+      const format7 = [{ system: false, msg: '[3/6/18 1:55:00 p. m.] a: m' }];
 
       const parsed1 = parseMessages(format1);
       const parsed2 = parseMessages(format2);
