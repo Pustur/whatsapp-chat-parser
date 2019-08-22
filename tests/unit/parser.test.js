@@ -35,6 +35,13 @@ describe('parser.js', () => {
     it('should flag system messages', () => {
       expect(makeArrayOfMessages(systemMessage)[0].system).toBe(true);
     });
+
+    it('should not break when multiline messages start with/contain a datetime', () => {
+      expect(
+        makeArrayOfMessages(multilineMessage.concat('2016-04-29 10:30:00'))[0]
+          .msg,
+      ).toBe('23/06/2018, 01:55 p.m. - Loris: one\ntwo\n2016-04-29 10:30:00');
+    });
   });
 
   describe('parseMessages', () => {
