@@ -180,6 +180,20 @@ describe('parser.js', () => {
           expect(parsedMonthFirst[0].date.getMonth()).toBe(2);
         });
       });
+      describe('setRunningMessageId', () => {
+        const messages = [{ system: false, msg: '3/6/18, 1:55 p.m. - a: m' }];
+        const parsedWithId = parseMessages(messages, {
+          setRunningMessageId: true,
+        });
+        const parsedWithoutId = parseMessages(messages, {
+          setRunningMessageId: false,
+        });
+
+        it('should allow the user to define if messages have running id numbering or not', () => {
+          expect(parsedWithId[0].id).toBe(1);
+          expect(parsedWithoutId[0].id).toBeUndefined();
+        });
+      });
     });
   });
 });

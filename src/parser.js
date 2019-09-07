@@ -53,8 +53,12 @@ function makeArrayOfMessages(lines) {
  * Given an array of messages, parses them and returns an object with the fields
  * date, author, message
  */
-function parseMessages(messages, options = { daysFirst: undefined }) {
-  let { daysFirst } = options;
+function parseMessages(
+  messages,
+  options = { daysFirst: undefined, setRunningMessageId: false },
+) {
+  let { daysFirst, setRunningMessageId } = options;
+  let runningMessageId = 0;
 
   // Parse messages with regex
   const parsed = messages.map(obj => {
@@ -87,6 +91,7 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
     let day;
     let month;
     let year;
+    runningMessageId += 1;
 
     if (daysFirst === false) {
       [month, day, year] = date.split(regexSplitDate);
@@ -99,6 +104,15 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
     const [hours, minutes, seconds] = normalizeTime(
       ampm ? convertTime12to24(time, normalizeAMPM(ampm)) : time,
     ).split(regexSplitTime);
+
+    if (setRunningMessageId === true) {
+      return {
+        id: runningMessageId,
+        date: new Date(year, month - 1, day, hours, minutes, seconds),
+        author,
+        message,
+      };
+    }
 
     return {
       date: new Date(year, month - 1, day, hours, minutes, seconds),
