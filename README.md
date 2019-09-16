@@ -59,7 +59,7 @@ You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsap
 ```html
 <script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/whatsapp-chat-parser.min.js"></script>
 <!-- Or use a specific version -->
-<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@2.0.6/dist/whatsapp-chat-parser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@2.0.7/dist/whatsapp-chat-parser.min.js"></script>
 ```
 
 &nbsp;
