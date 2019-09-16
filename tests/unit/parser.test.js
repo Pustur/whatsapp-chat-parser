@@ -142,6 +142,8 @@ describe('parser.js', () => {
       const format5 = [{ system: false, msg: '13.6.2018 klo 21.25.15 - a: m' }];
       const format6 = [{ system: false, msg: '13. 6. 2018. 21:25:15 a: m' }];
       const format7 = [{ system: false, msg: '[3/6/18 1:55:00 p. m.] a: m' }];
+      // Format8 contains a left-to-right-mark before the date
+      const format8 = [{ system: false, msg: '‎[3/6/18 1:55:00 p. m.] a: m' }];
 
       const parsed1 = parseMessages(format1);
       const parsed2 = parseMessages(format2);
@@ -150,6 +152,7 @@ describe('parser.js', () => {
       const parsed5 = parseMessages(format5);
       const parsed6 = parseMessages(format6);
       const parsed7 = parseMessages(format7);
+      const parsed8 = parseMessages(format8);
 
       const expected1 = '2018-06-03T13:55:00.000Z';
       const expected2 = '2018-06-13T21:25:15.000Z';
@@ -163,6 +166,7 @@ describe('parser.js', () => {
           expect(parsed5[0].date.toISOString()).toBe(expected2);
           expect(parsed6[0].date.toISOString()).toBe(expected2);
           expect(parsed7[0].date.toISOString()).toBe(expected1);
+          expect(parsed8[0].date.toISOString()).toBe(expected1);
         });
       });
     });
