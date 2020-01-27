@@ -6,8 +6,8 @@ const {
   normalizeTime,
 } = require('./time.js');
 
-const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
-const regexParserSystem = /^(?:\u200E|\u200F)*\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? ([^]+)/i;
+const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
+const regexParserSystem = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? ([^]+)/i;
 const regexSplitDate = /[-/.] ?/;
 
 /**
@@ -53,6 +53,7 @@ function makeArrayOfMessages(lines) {
  * date, author, message
  */
 function parseMessages(messages, options = { daysFirst: undefined }) {
+  const sortByLengthAsc = (a, b) => a.length - b.length;
   let { daysFirst } = options;
 
   // Parse messages with regex
@@ -75,7 +76,11 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
   if (typeof daysFirst !== 'boolean') {
     const numericDates = Array.from(
       new Set(parsed.map(({ date }) => date)),
-      date => date.split(regexSplitDate).map(Number),
+      date =>
+        date
+          .split(regexSplitDate)
+          .sort(sortByLengthAsc)
+          .map(Number),
     );
 
     daysFirst = daysBeforeMonths(numericDates);
@@ -86,11 +91,12 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
     let day;
     let month;
     let year;
+    const splitDate = date.split(regexSplitDate).sort(sortByLengthAsc);
 
     if (daysFirst === false) {
-      [month, day, year] = date.split(regexSplitDate);
+      [month, day, year] = splitDate;
     } else {
-      [day, month, year] = date.split(regexSplitDate);
+      [day, month, year] = splitDate;
     }
 
     [year, month, day] = normalizeDate(year, month, day);
