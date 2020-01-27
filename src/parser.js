@@ -8,7 +8,6 @@ const {
 
 const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
 const regexParserSystem = /^(?:\u200E|\u200F)*\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? ([^]+)/i;
-const regexStartsWithDateTime = /^(?:\u200E|\u200F)*\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?/i;
 const regexSplitDate = /[-/.] ?/;
 
 /**
@@ -25,10 +24,10 @@ function makeArrayOfMessages(lines) {
      */
     if (!regexParser.test(line)) {
       /**
-       * If it doesn't match the first regex but still starts with a datetime
+       * If it doesn't match the first regex but still matches the system regex
        * it should be considered a "whatsapp event" so it gets labeled "system"
        */
-      if (regexStartsWithDateTime.test(line)) {
+      if (regexParserSystem.test(line)) {
         acc.push({ system: true, msg: line });
       }
 
