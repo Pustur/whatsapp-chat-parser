@@ -7,9 +7,21 @@ const {
 
 describe('date.js', () => {
   describe('checkAbove12', () => {
-    const daysFirst = [[3, 6, 2017], [13, 11, 2017], [26, 12, 2017]];
-    const monthsFirst = [[4, 2, 2017], [6, 11, 2017], [12, 13, 2017]];
-    const undetectable = [[4, 6, 2017], [11, 10, 2017], [12, 12, 2017]];
+    const daysFirst = [
+      [3, 6, 2017],
+      [13, 11, 2017],
+      [26, 12, 2017],
+    ];
+    const monthsFirst = [
+      [4, 2, 2017],
+      [6, 11, 2017],
+      [12, 13, 2017],
+    ];
+    const undetectable = [
+      [4, 6, 2017],
+      [11, 10, 2017],
+      [12, 12, 2017],
+    ];
 
     it('should return true if days come first', () => {
       expect(checkAbove12(daysFirst)).toBe(true);
@@ -25,12 +37,36 @@ describe('date.js', () => {
   });
 
   describe('checkDecreasing', () => {
-    const daysFirst = [[8, 3, 2017], [10, 5, 2017], [6, 9, 2017]];
-    const monthsFirst = [[6, 3, 2017], [8, 5, 2017], [9, 4, 2017]];
-    const undetectable = [[1, 1, 2017], [3, 3, 2017], [6, 6, 2017]];
-    const differentYears1 = [[8, 3, 2017], [7, 5, 2017], [6, 9, 2018]];
-    const differentYears2 = [[8, 3, 2017], [10, 2, 2017], [6, 9, 2018]];
-    const differentYears3 = [[8, 3, 2017], [10, 5, 2017], [6, 9, 2018]];
+    const daysFirst = [
+      [8, 3, 2017],
+      [10, 5, 2017],
+      [6, 9, 2017],
+    ];
+    const monthsFirst = [
+      [6, 3, 2017],
+      [8, 5, 2017],
+      [9, 4, 2017],
+    ];
+    const undetectable = [
+      [1, 1, 2017],
+      [3, 3, 2017],
+      [6, 6, 2017],
+    ];
+    const differentYears1 = [
+      [8, 3, 2017],
+      [7, 5, 2017],
+      [6, 9, 2018],
+    ];
+    const differentYears2 = [
+      [8, 3, 2017],
+      [10, 2, 2017],
+      [6, 9, 2018],
+    ];
+    const differentYears3 = [
+      [8, 3, 2017],
+      [10, 5, 2017],
+      [6, 9, 2018],
+    ];
 
     it('should return true if days come first', () => {
       expect(checkDecreasing(daysFirst)).toBe(true);
@@ -52,11 +88,23 @@ describe('date.js', () => {
   });
 
   describe('changeFrequencyAnalysis', () => {
-    const daysFirst = [[3, 4, 2017], [7, 5, 2017], [11, 6, 2017]];
+    const daysFirst = [
+      [3, 4, 2017],
+      [7, 5, 2017],
+      [11, 6, 2017],
+    ];
     // Diff: [8, 2, 0]
-    const monthsFirst = [[1, 1, 2017], [1, 3, 2017], [2, 7, 2017]];
+    const monthsFirst = [
+      [1, 1, 2017],
+      [1, 3, 2017],
+      [2, 7, 2017],
+    ];
     // Diff: [1, 6, 0]
-    const undetectable = [[6, 3, 2017], [8, 5, 2017], [9, 4, 2017]];
+    const undetectable = [
+      [6, 3, 2017],
+      [8, 5, 2017],
+      [9, 4, 2017],
+    ];
     // Diff: [3, 3, 0]
 
     it('should return true if days come first', () => {

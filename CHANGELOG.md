@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.8] - 2020-01-27
+
+### Added
+
+- Ability to parse date formats where the year is not the last number (e.g. `2020/01/27`)
+
 ## [2.0.7] - 2019-09-16
 
 ### Fixed
@@ -129,6 +135,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
+[2.0.8]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.7...2.0.8
 [2.0.7]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.6...2.0.7
 [2.0.6]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.5...2.0.6
 [2.0.5]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.4...2.0.5
