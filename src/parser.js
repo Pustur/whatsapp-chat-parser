@@ -6,9 +6,8 @@ const {
   normalizeTime,
 } = require('./time.js');
 
-const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
-const regexParserSystem = /^(?:\u200E|\u200F)*\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? ([^]+)/i;
-const regexStartsWithDateTime = /^(?:\u200E|\u200F)*\[?(\d{1,2}[-/.] ?\d{1,2}[-/.] ?\d{2,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?/i;
+const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
+const regexParserSystem = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? ([^]+)/i;
 const regexSplitDate = /[-/.] ?/;
 
 /**
@@ -25,10 +24,10 @@ function makeArrayOfMessages(lines) {
      */
     if (!regexParser.test(line)) {
       /**
-       * If it doesn't match the first regex but still starts with a datetime
+       * If it doesn't match the first regex but still matches the system regex
        * it should be considered a "whatsapp event" so it gets labeled "system"
        */
-      if (regexStartsWithDateTime.test(line)) {
+      if (regexParserSystem.test(line)) {
         acc.push({ system: true, msg: line });
       }
 
@@ -54,6 +53,7 @@ function makeArrayOfMessages(lines) {
  * date, author, message
  */
 function parseMessages(messages, options = { daysFirst: undefined }) {
+  const sortByLengthAsc = (a, b) => a.length - b.length;
   let { daysFirst } = options;
 
   // Parse messages with regex
@@ -76,7 +76,11 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
   if (typeof daysFirst !== 'boolean') {
     const numericDates = Array.from(
       new Set(parsed.map(({ date }) => date)),
-      date => date.split(regexSplitDate).map(Number),
+      date =>
+        date
+          .split(regexSplitDate)
+          .sort(sortByLengthAsc)
+          .map(Number),
     );
 
     daysFirst = daysBeforeMonths(numericDates);
@@ -87,11 +91,12 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
     let day;
     let month;
     let year;
+    const splitDate = date.split(regexSplitDate).sort(sortByLengthAsc);
 
     if (daysFirst === false) {
-      [month, day, year] = date.split(regexSplitDate);
+      [month, day, year] = splitDate;
     } else {
-      [day, month, year] = date.split(regexSplitDate);
+      [day, month, year] = splitDate;
     }
 
     [year, month, day] = normalizeDate(year, month, day);
