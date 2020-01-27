@@ -34,7 +34,11 @@ describe('utils.js', () => {
 
   describe('groupArrayByValueAtIndex', () => {
     it('should split array into chunks based on the value at index', () => {
-      const array = [[8, 30, 'sample'], [9, 50, 'sample'], [6, 30, 'sample']];
+      const array = [
+        [8, 30, 'sample'],
+        [9, 50, 'sample'],
+        [6, 30, 'sample'],
+      ];
 
       expect(groupArrayByValueAtIndex(array, 0)).toEqual([
         [[8, 30, 'sample']],
@@ -42,11 +46,18 @@ describe('utils.js', () => {
         [[6, 30, 'sample']],
       ]);
       expect(groupArrayByValueAtIndex(array, 1)).toEqual([
-        [[8, 30, 'sample'], [6, 30, 'sample']],
+        [
+          [8, 30, 'sample'],
+          [6, 30, 'sample'],
+        ],
         [[9, 50, 'sample']],
       ]);
       expect(groupArrayByValueAtIndex(array, 2)).toEqual([
-        [[8, 30, 'sample'], [9, 50, 'sample'], [6, 30, 'sample']],
+        [
+          [8, 30, 'sample'],
+          [9, 50, 'sample'],
+          [6, 30, 'sample'],
+        ],
       ]);
     });
   });
