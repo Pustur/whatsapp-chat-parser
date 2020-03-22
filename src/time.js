@@ -25,8 +25,9 @@ function convertTime12to24(time, ampm) {
 function normalizeTime(time) {
   const [hours, minutes, seconds] = time.split(regexSplitTime);
 
-  return `${hours.length === 1 ? `0${hours}` : hours}:${minutes}:${seconds ||
-    '00'}`;
+  return `${hours.length === 1 ? `0${hours}` : hours}:${minutes}:${
+    seconds || '00'
+  }`;
 }
 
 /**

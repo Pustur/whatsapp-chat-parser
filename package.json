@@ -17,7 +17,7 @@
     "test:unit": "jest tests/unit",
     "test:integration": "npm run build && jest tests/integration",
     "lint": "eslint .",
-    "format": "pretty-quick",
+    "format": "prettier --write .",
     "format:staged": "pretty-quick --staged",
     "prepublishOnly": "npm run test:integration"
   },
