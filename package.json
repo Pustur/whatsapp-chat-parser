@@ -55,7 +55,7 @@
     "eslint-plugin-prettier": "3.1.2",
     "husky": "4.2.3",
     "jest": "25.2.4",
-    "prettier": "2.0.1",
+    "prettier": "2.0.2",
     "pretty-quick": "2.0.1",
     "rimraf": "3.0.2",
     "rollup": "2.1.0",
