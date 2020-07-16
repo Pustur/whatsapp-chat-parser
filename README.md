@@ -7,7 +7,7 @@
 > A package to parse WhatsApp chat logs 💬
 
 You can test the package online with this example website:  
-[whatsapp-chat-parser.netlify.com](https://whatsapp-chat-parser.netlify.com/) ([Source code](https://github.com/Pustur/whatsapp-chat-parser-website))
+[whatsapp-chat-parser.netlify.app](https://whatsapp-chat-parser.netlify.app/) ([Source code](https://github.com/Pustur/whatsapp-chat-parser-website))
 
 ## Install
 
