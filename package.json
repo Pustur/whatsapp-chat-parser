@@ -61,7 +61,7 @@
     "rollup": "2.22.1",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
-    "rollup-plugin-uglify": "6.0.4",
+    "rollup-plugin-terser": "7.0.0",
     "set-tz": "0.2.0"
   },
   "husky": {

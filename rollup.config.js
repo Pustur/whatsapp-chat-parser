@@ -1,5 +1,5 @@
 import commonjs from 'rollup-plugin-commonjs';
-import { uglify } from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 
@@ -30,6 +30,6 @@ export default [
       format,
       exports,
     },
-    plugins: [commonjs(), babel(), uglify()],
+    plugins: [commonjs(), babel(), terser()],
   },
 ];
