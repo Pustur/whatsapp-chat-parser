@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", "schedule:earlyMondays"],
+  "extends": ["config:js-lib", "schedule:monthly"],
   "baseBranches": ["develop"],
   "circleci": { "enabled": false }
 }

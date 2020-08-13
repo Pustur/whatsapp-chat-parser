@@ -76,11 +76,7 @@ function parseMessages(messages, options = { daysFirst: undefined }) {
   if (typeof daysFirst !== 'boolean') {
     const numericDates = Array.from(
       new Set(parsed.map(({ date }) => date)),
-      date =>
-        date
-          .split(regexSplitDate)
-          .sort(sortByLengthAsc)
-          .map(Number),
+      date => date.split(regexSplitDate).sort(sortByLengthAsc).map(Number),
     );
 
     daysFirst = daysBeforeMonths(numericDates);
