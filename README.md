@@ -6,6 +6,10 @@
 
 > A package to parse WhatsApp chat logs 💬
 
+# Introduction
+
+This library allows you to parse WhatsApp chat logs from text format into javascript objects, enabling you to more easily manipulate the data, create statistics, export it in different formats, etc.
+
 You can test the package online with this example website:  
 [whatsapp-chat-parser.netlify.app](https://whatsapp-chat-parser.netlify.app/) ([Source code](https://github.com/Pustur/whatsapp-chat-parser-website))
 
@@ -59,7 +63,7 @@ You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsap
 ```html
 <script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/whatsapp-chat-parser.min.js"></script>
 <!-- Or use a specific version -->
-<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@2.0.8/dist/whatsapp-chat-parser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@3.0.0/dist/whatsapp-chat-parser.min.js"></script>
 ```
 
 &nbsp;
@@ -119,9 +123,8 @@ A configuration object, more details below
 
 ## How to export WhatsApp chats
 
-- [Android](https://faq.whatsapp.com/en/android/23756533/)
-- [iPhone](https://faq.whatsapp.com/en/iphone/20888066/#email)
-- [Windows Phone](https://faq.whatsapp.com/en/wp/22548236)
+- [Android](https://faq.whatsapp.com/android/chats/how-to-save-your-chat-history)
+- [iPhone](https://faq.whatsapp.com/iphone/chats/how-to-back-up-to-icloud/)
 
 ## Technologies used
 
@@ -137,9 +140,8 @@ A configuration object, more details below
 
 ### Browser
 
-This package is written in ES6 and transpiled to ES5.  
-It should work in all relevant browsers.  
-If the browsers you're targeting support [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) / [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) / [String.prototype.padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) you're probably good to go.
+This package is written in ES6.  
+It should work in all relevant browsers from ~2017 onwards.
 
 ## Changelog
 

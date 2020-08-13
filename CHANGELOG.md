@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2020-08-13
+
+### Removed
+
+- **POTENTIALLY BREAKING**: Removed ES6 to ES5 transpilation.  
+  This should in theory not be a problem since the transpiled version still contained some newer methods that were not polyfilled, such as `.padStart()` and every browser that supports that also supports all the other ES6 stuff.  
+  So in short, transpiling to ES5 was probably never even needed.  
+  Having said that I will still tag this as a major release just to be safe.
+
+### Changed
+
+- Minor readme improvements
+- Upgraded dev dependencies
+- Renovate config
+
 ## [2.0.8] - 2020-01-27
 
 ### Added
@@ -135,6 +150,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
+[3.0.0]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.8...3.0.0
 [2.0.8]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.7...2.0.8
 [2.0.7]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.6...2.0.7
 [2.0.6]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.5...2.0.6
