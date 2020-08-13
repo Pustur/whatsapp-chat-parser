@@ -8,13 +8,8 @@ function convertTime12to24(time, ampm) {
   // eslint-disable-next-line prefer-const
   let [hours, minutes, seconds] = time.split(regexSplitTime);
 
-  if (hours === '12') {
-    hours = '00';
-  }
-
-  if (ampm === 'PM') {
-    hours = parseInt(hours, 10) + 12;
-  }
+  if (hours === '12') hours = '00';
+  if (ampm === 'PM') hours = parseInt(hours, 10) + 12;
 
   return `${hours}:${minutes}${seconds ? `:${seconds}` : ''}`;
 }

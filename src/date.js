@@ -14,15 +14,11 @@ const {
 function checkAbove12(numericDates) {
   const daysFirst = numericDates.some(indexAboveValue(0, 12));
 
-  if (daysFirst) {
-    return true;
-  }
+  if (daysFirst) return true;
 
   const daysSecond = numericDates.some(indexAboveValue(1, 12));
 
-  if (daysSecond) {
-    return false;
-  }
+  if (daysSecond) return false;
 
   return null;
 }
@@ -47,9 +43,7 @@ function checkDecreasing(numericDates) {
       return isNegative(first2 - first1);
     });
 
-    if (daysFirst) {
-      return true;
-    }
+    if (daysFirst) return true;
 
     const daysSecond = dates.slice(1).some((date, i) => {
       const [, second1] = dates[i];
@@ -58,24 +52,18 @@ function checkDecreasing(numericDates) {
       return isNegative(second2 - second1);
     });
 
-    if (daysSecond) {
-      return false;
-    }
+    if (daysSecond) return false;
 
     return null;
   });
 
   const anyTrue = results.some(value => value === true);
 
-  if (anyTrue) {
-    return true;
-  }
+  if (anyTrue) return true;
 
   const anyFalse = results.some(value => value === false);
 
-  if (anyFalse) {
-    return false;
-  }
+  if (anyFalse) return false;
 
   return null;
 }
@@ -102,13 +90,8 @@ function changeFrequencyAnalysis(numericDates) {
     [0, 0],
   );
 
-  if (first > second) {
-    return true;
-  }
-
-  if (first < second) {
-    return false;
-  }
+  if (first > second) return true;
+  if (first < second) return false;
 
   return null;
 }
@@ -124,15 +107,11 @@ function changeFrequencyAnalysis(numericDates) {
 function daysBeforeMonths(numericDates) {
   const firstCheck = checkAbove12(numericDates);
 
-  if (firstCheck !== null) {
-    return firstCheck;
-  }
+  if (firstCheck !== null) return firstCheck;
 
   const secondCheck = checkDecreasing(numericDates);
 
-  if (secondCheck !== null) {
-    return secondCheck;
-  }
+  if (secondCheck !== null) return secondCheck;
 
   return changeFrequencyAnalysis(numericDates);
 }
