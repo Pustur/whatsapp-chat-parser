@@ -1,6 +1,5 @@
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
-import babel from 'rollup-plugin-babel';
 import pkg from './package.json';
 
 const input = 'src/index.js';
@@ -19,7 +18,7 @@ export default [
       format,
       exports,
     },
-    plugins: [commonjs(), babel()],
+    plugins: [commonjs()],
   },
   {
     input,
@@ -30,6 +29,6 @@ export default [
       format,
       exports,
     },
-    plugins: [commonjs(), babel(), terser()],
+    plugins: [commonjs(), terser()],
   },
 ];
