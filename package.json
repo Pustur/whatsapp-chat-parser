@@ -13,7 +13,7 @@
     "pretest": "npm run build",
     "test": "jest",
     "test:watch": "jest tests/unit --watchAll",
-    "test:coverage": "jest tests/unit --coverage",
+    "test:coverage": "npm t -- --coverage",
     "test:unit": "jest tests/unit",
     "test:integration": "npm run build && jest tests/integration",
     "lint": "eslint .",
