@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/whatsapp-chat-parser.svg)](https://www.npmjs.com/package/whatsapp-chat-parser)
 [![minified size](https://img.shields.io/bundlephobia/min/whatsapp-chat-parser.svg)](https://bundlephobia.com/result?p=whatsapp-chat-parser)
 
-> A package to parse WhatsApp chat logs 💬
+> A package to parse WhatsApp chats with Node.js or in the browser 💬
 
 # Introduction
 
