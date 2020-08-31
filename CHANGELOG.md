@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.1] - 2020-09-01
+
+### Added
+
+- Codecov badge in readme (collect coverage info in Circleci)
+
+### Changed
+
+- Upgraded package description
+- Upgraded dev dependencies
+
 ## [3.0.0] - 2020-08-13
 
 ### Removed
@@ -150,6 +161,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
+[3.0.1]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.0.0...3.0.1
 [3.0.0]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.8...3.0.0
 [2.0.8]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.7...2.0.8
 [2.0.7]: https://github.com/Pustur/whatsapp-chat-parser/compare/2.0.6...2.0.7

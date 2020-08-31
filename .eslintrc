@@ -1,8 +1,7 @@
 {
   "extends": ["airbnb-base", "plugin:prettier/recommended"],
   "env": {
-    "jest": true,
-    "node": true
+    "jest": true
   },
   "rules": {
     "no-param-reassign": ["error", { "props": false }]

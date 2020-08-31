@@ -1,10 +1,11 @@
 # WhatsApp Chat Parser
 
 [![CircleCI](https://circleci.com/gh/Pustur/whatsapp-chat-parser/tree/master.svg?style=svg)](https://circleci.com/gh/Pustur/whatsapp-chat-parser/tree/master)
+[![codecov](https://codecov.io/gh/Pustur/whatsapp-chat-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/Pustur/whatsapp-chat-parser)
 [![npm version](https://img.shields.io/npm/v/whatsapp-chat-parser.svg)](https://www.npmjs.com/package/whatsapp-chat-parser)
 [![minified size](https://img.shields.io/bundlephobia/min/whatsapp-chat-parser.svg)](https://bundlephobia.com/result?p=whatsapp-chat-parser)
 
-> A package to parse WhatsApp chat logs 💬
+> A package to parse WhatsApp chats with Node.js or in the browser 💬
 
 # Introduction
 
@@ -63,7 +64,7 @@ You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsap
 ```html
 <script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/whatsapp-chat-parser.min.js"></script>
 <!-- Or use a specific version -->
-<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@3.0.0/dist/whatsapp-chat-parser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@3.0.1/dist/whatsapp-chat-parser.min.js"></script>
 ```
 
 &nbsp;
