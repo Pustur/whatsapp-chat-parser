@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-chat-parser",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A package to parse WhatsApp chats with Node.js or in the browser 💬",
   "main": "dist/whatsapp-chat-parser.js",
   "types": "types/whatsapp-chat-parser.d.ts",
