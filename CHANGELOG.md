@@ -70,7 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Test both `src` and `dist` files [#28](https://github.com/Pustur/whatsapp-chat-parser/issues/28) (Thanks [@LambdaFalcon](https://github.com/LambdaFalcon))
+- Test both `src` and `dist` files [#28](https://github.com/Pustur/whatsapp-chat-parser/issues/28) (Thanks [@TiredFalcon](https://github.com/TiredFalcon))
 - Replaced [Greenkeeper](https://greenkeeper.io/) with [Renovate](https://renovatebot.com/)
 - Readme badges (npm version, package size)
 - Improved changelog
