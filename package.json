@@ -46,7 +46,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "eslint": "7.12.1",
+    "eslint": "7.14.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-config-prettier": "6.15.0",
     "eslint-plugin-import": "2.22.1",
