@@ -190,6 +190,40 @@ describe('parser.js', () => {
           expect(parsedMonthFirst[0].date.getMonth()).toBe(2);
         });
       });
+
+      describe('parseAttachments', () => {
+        const messages = [
+          {
+            system: false,
+            msg:
+              '3/6/18, 1:55 p.m. - a: <attached: 00000042-PHOTO-2020-06-07-15-13-20.jpg>',
+          },
+          {
+            system: false,
+            msg: '3/6/18, 1:55 p.m. - a: m',
+          },
+        ];
+        const parsedWithoutAttachments = parseMessages(messages, {
+          parseAttachments: false,
+        });
+        const parsedWithAttachments = parseMessages(messages, {
+          parseAttachments: true,
+        });
+
+        it('should correctly parse the attachment string', () => {
+          expect(parsedWithAttachments[0].attachment.fileName).toBe(
+            '00000042-PHOTO-2020-06-07-15-13-20.jpg',
+          );
+        });
+
+        it('should not add attachment property when parseAttachments is false', () => {
+          expect(parsedWithoutAttachments[0].attachment).toBeUndefined();
+        });
+
+        it('should not add attachment property to normal messages', () => {
+          expect(parsedWithAttachments[1].attachment).toBeUndefined();
+        });
+      });
     });
   });
 });
