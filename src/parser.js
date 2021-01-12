@@ -9,7 +9,7 @@ const {
 const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
 const regexParserSystem = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? ([^]+)/i;
 const regexSplitDate = /[-/.] ?/;
-const regexAttachment = /<.+: (.+)>/;
+const regexAttachment = /<.+:(.+)>/;
 
 /**
  * Given an array of lines, detects the lines that are part of a previous
@@ -52,7 +52,7 @@ function makeArrayOfMessages(lines) {
 function parseMessageAttachment(message) {
   const attachmentMatch = message.match(regexAttachment);
 
-  if (attachmentMatch) return { fileName: attachmentMatch[1] };
+  if (attachmentMatch) return { fileName: attachmentMatch[1].trim() };
   return null;
 }
 
