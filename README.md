@@ -64,7 +64,7 @@ You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsap
 ```html
 <script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/whatsapp-chat-parser.min.js"></script>
 <!-- Or use a specific version -->
-<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@3.0.2/dist/whatsapp-chat-parser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@3.1.0/dist/whatsapp-chat-parser.min.js"></script>
 ```
 
 &nbsp;
@@ -82,6 +82,21 @@ The `messages` variable is an array of objects like this:
     date: '2018-06-02T23:48:00.000Z', // Date object
     author: 'Joe',
     message: 'All good, thanks',
+  },
+];
+```
+
+When using the option [`parseAttachments`](#options), the message may contain an additional property `attachment`:
+
+```javascript
+[
+  {
+    date: '2018-06-02T23:50:00.000Z', // Date object
+    author: 'Joe',
+    message: '<attached: 00000042-PHOTO-2020-06-07-15-13-20.jpg>',
+    attachment: {
+      fileName: '00000042-PHOTO-2020-06-07-15-13-20.jpg',
+    },
   },
 ];
 ```
@@ -120,6 +135,7 @@ A configuration object, more details below
 | Name | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | daysFirst | `Boolean` | `undefined` | Specify if the dates in your log file start with a day (`true`) or a month (`false`). Manually specifying this may improve performance. By default the program will try to infer this information using 3 different methods (look at [`date.js`](src/date.js) for the implementation), if all fails it defaults to interpret the first digit as the day. |
+| parseAttachments | `Boolean` | `false` | Specify if attachments should be parsed. If set to `true`, messages with attachments will include an `attachment` property with information about the attachment. |
 <!-- prettier-ignore-end -->
 
 ## How to export WhatsApp chats

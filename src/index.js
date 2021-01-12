@@ -6,7 +6,7 @@ const { makeArrayOfMessages, parseMessages } = require('./parser.js');
  */
 function parseString(string, options) {
   return Promise.resolve(string)
-    .then(data => data.split('\n'))
+    .then(data => data.split(/(?:\r\n|\r|\n)/))
     .then(makeArrayOfMessages)
     .then(messages => parseMessages(messages, options));
 }
