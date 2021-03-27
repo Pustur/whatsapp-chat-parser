@@ -52,6 +52,8 @@
   "devDependencies": {
     "@rollup/plugin-typescript": "8.2.0",
     "@types/jest": "26.0.22",
+    "@typescript-eslint/eslint-plugin": "4.20.0",
+    "@typescript-eslint/parser": "4.20.0",
     "eslint": "7.21.0",
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-config-prettier": "8.1.0",
