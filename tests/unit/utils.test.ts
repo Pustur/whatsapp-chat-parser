@@ -1,8 +1,8 @@
-const {
+import {
   indexAboveValue,
   isNegative,
   groupArrayByValueAtIndex,
-} = require('../../src/utils.js');
+} from '../../src/utils';
 
 describe('utils.js', () => {
   describe('indexAboveValue', () => {
