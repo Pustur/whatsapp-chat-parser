@@ -5,6 +5,7 @@ import {
   normalizeAMPM,
   normalizeTime,
 } from './time';
+import { Message, PartialMessage, ParseStringOptions } from './types';
 import { sortByLengthAsc } from './utils';
 
 const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
@@ -18,8 +19,8 @@ const regexAttachment = /<.+:(.+)>/;
  * It also labels the system messages
  * The result is an array of messages
  */
-function makeArrayOfMessages(lines) {
-  return lines.reduce((acc, line) => {
+function makeArrayOfMessages(lines: string[]) {
+  return lines.reduce((acc: PartialMessage[], line) => {
     /**
      * If the line doesn't conform to the regex it's probably part of the
      * previous message or a "whatsapp event"
@@ -38,8 +39,8 @@ function makeArrayOfMessages(lines) {
         const prevMessage = acc.pop();
 
         acc.push({
-          system: prevMessage.system,
-          msg: `${prevMessage.msg}\n${line}`,
+          system: prevMessage!.system,
+          msg: `${prevMessage!.msg}\n${line}`,
         });
       }
     } else {
@@ -50,7 +51,7 @@ function makeArrayOfMessages(lines) {
   }, []);
 }
 
-function parseMessageAttachment(message) {
+function parseMessageAttachment(message: string) {
   const attachmentMatch = message.match(regexAttachment);
 
   if (attachmentMatch) return { fileName: attachmentMatch[1].trim() };
@@ -62,8 +63,8 @@ function parseMessageAttachment(message) {
  * date, author, message
  */
 function parseMessages(
-  messages,
-  options = { daysFirst: undefined, parseAttachments: false },
+  messages: PartialMessage[],
+  options: ParseStringOptions = { parseAttachments: false },
 ) {
   let { daysFirst } = options;
   const { parseAttachments } = options;
@@ -74,12 +75,16 @@ function parseMessages(
 
     // If it's a system message another regex should be used to parse it
     if (system) {
-      const [, date, time, ampm, message] = regexParserSystem.exec(msg);
+      const [, date, time, ampm, message] = regexParserSystem.exec(
+        msg,
+      ) as RegExpExecArray;
 
       return { date, time, ampm: ampm || null, author: 'System', message };
     }
 
-    const [, date, time, ampm, author, message] = regexParser.exec(msg);
+    const [, date, time, ampm, author, message] = regexParser.exec(
+      msg,
+    ) as RegExpExecArray;
 
     return { date, time, ampm: ampm || null, author, message };
   });
@@ -88,8 +93,7 @@ function parseMessages(
   if (typeof daysFirst !== 'boolean') {
     const numericDates = Array.from(
       new Set(parsed.map(({ date }) => date)),
-      (date: any) =>
-        date.split(regexSplitDate).sort(sortByLengthAsc).map(Number),
+      date => date.split(regexSplitDate).sort(sortByLengthAsc).map(Number),
     );
 
     daysFirst = daysBeforeMonths(numericDates);
@@ -114,8 +118,8 @@ function parseMessages(
       ampm ? convertTime12to24(time, normalizeAMPM(ampm)) : time,
     ).split(regexSplitTime);
 
-    const finalObject: any = {
-      date: new Date(year, month - 1, day, +hours, +minutes, +seconds),
+    const finalObject: Message = {
+      date: new Date(+year, +month - 1, +day, +hours, +minutes, +seconds),
       author,
       message,
     };

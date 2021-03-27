@@ -2,15 +2,15 @@
  * Checks that an item at a certain index of an array is greater than a certain
  * value
  */
-function indexAboveValue(index, value) {
-  return array => array[index] > value;
+function indexAboveValue(index: number, value: number) {
+  return (array: number[]) => array[index] > value;
 }
 
 /**
  * Returns true for a negative number, false otherwise
  * 0 is considered positive
  */
-function isNegative(number) {
+function isNegative(number: number) {
   return number < 0;
 }
 
@@ -27,9 +27,9 @@ function sortByLengthAsc<T extends { length: number }>(a: T, b: T) {
  * at the index provided
  * See test cases for a better understanding of this function
  */
-function groupArrayByValueAtIndex(array, index): any[][][] {
+function groupArrayByValueAtIndex<T>(array: T[][], index: number) {
   return Object.values(
-    array.reduce((obj, item) => {
+    array.reduce((obj: { [key: string]: T[][] }, item) => {
       /**
        * Keys that are only numbers get sorted when using Object.values()
        * Adding a prefix avoids this issue

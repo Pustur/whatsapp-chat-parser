@@ -7,7 +7,7 @@ import { indexAboveValue, isNegative, groupArrayByValueAtIndex } from './utils';
  * Output is true if days are first, false if they are second, or null if it
  * failed to understand the order
  */
-function checkAbove12(numericDates) {
+function checkAbove12(numericDates: number[][]) {
   const daysFirst = numericDates.some(indexAboveValue(0, 12));
 
   if (daysFirst) return true;
@@ -29,7 +29,7 @@ function checkAbove12(numericDates) {
  * Output is true if days are first, false if they are second, or null if it
  * failed to understand the order
  */
-function checkDecreasing(numericDates) {
+function checkDecreasing(numericDates: number[][]) {
   const datesByYear = groupArrayByValueAtIndex(numericDates, 2);
   const results = datesByYear.map(dates => {
     const daysFirst = dates.slice(1).some((date, i) => {
@@ -72,7 +72,7 @@ function checkDecreasing(numericDates) {
  * Output is true if days are first, false if they are second, or null if it
  * failed to understand the order
  */
-function changeFrequencyAnalysis(numericDates) {
+function changeFrequencyAnalysis(numericDates: number[][]) {
   const diffs = numericDates
     .slice(1)
     .map((date, i) => date.map((num, j) => Math.abs(numericDates[i][j] - num)));
@@ -100,7 +100,7 @@ function changeFrequencyAnalysis(numericDates) {
  * Output is true if days are first, false if they are second, or null if it
  * failed to understand the order
  */
-function daysBeforeMonths(numericDates) {
+function daysBeforeMonths(numericDates: number[][]) {
   const firstCheck = checkAbove12(numericDates);
 
   if (firstCheck !== null) return firstCheck;
@@ -115,7 +115,7 @@ function daysBeforeMonths(numericDates) {
 /**
  * Takes year, month and day as strings and pads them as needed
  */
-function normalizeDate(year, month, day) {
+function normalizeDate(year: string, month: string, day: string) {
   return [
     year.padStart(4, '2000'),
     month.padStart(2, '0'),
