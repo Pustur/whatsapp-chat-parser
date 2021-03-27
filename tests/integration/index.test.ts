@@ -1,4 +1,4 @@
 const whatsappParser = require('../../dist/whatsapp-chat-parser.min.js');
-const indexTests = require('../shared/indexTests.js');
+import { indexTests } from '../shared/indexTests';
 
 indexTests(whatsappParser);

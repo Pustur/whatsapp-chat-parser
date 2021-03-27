@@ -1,4 +1,6 @@
-function indexTests(whatsappParser) {
+import { WhatsappParser } from '../../src/types';
+
+function indexTests(whatsappParser: WhatsappParser) {
   describe('index.js', () => {
     describe('parseString', () => {
       const shortChatPromise = whatsappParser.parseString(
@@ -39,4 +41,4 @@ Is everything alright?
   });
 }
 
-module.exports = indexTests;
+export { indexTests };
