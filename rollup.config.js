@@ -1,8 +1,8 @@
-import commonjs from 'rollup-plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-const input = 'src/index.js';
+const input = 'src/index.ts';
 const name = 'whatsappChatParser';
 const sourcemap = true;
 const format = 'umd';
@@ -18,7 +18,7 @@ export default [
       format,
       exports,
     },
-    plugins: [commonjs()],
+    plugins: [typescript()],
   },
   {
     input,
@@ -29,6 +29,6 @@ export default [
       format,
       exports,
     },
-    plugins: [commonjs(), terser()],
+    plugins: [typescript(), terser()],
   },
 ];
