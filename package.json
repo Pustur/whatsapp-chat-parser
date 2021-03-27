@@ -9,13 +9,15 @@
     "dist/"
   ],
   "scripts": {
-    "build": "rimraf dist/ && rollup -c",
+    "build": "npm run clean && npm run build:types && rollup -c",
+    "build:types": "tsc --emitDeclarationOnly",
     "pretest": "npm run build",
     "test": "jest",
     "test:watch": "jest tests/unit --watchAll",
     "test:coverage": "npm t -- --coverage",
     "test:unit": "jest tests/unit",
     "test:integration": "npm run build && jest tests/integration",
+    "clean": "rimraf dist/",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:staged": "pretty-quick --staged",
