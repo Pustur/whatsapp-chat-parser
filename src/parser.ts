@@ -5,6 +5,7 @@ import {
   normalizeAMPM,
   normalizeTime,
 } from './time';
+import { sortByLengthAsc } from './utils';
 
 const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
 const regexParserSystem = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? ([^]+)/i;
@@ -64,7 +65,6 @@ function parseMessages(
   messages,
   options = { daysFirst: undefined, parseAttachments: false },
 ) {
-  const sortByLengthAsc = (a, b) => a.length - b.length;
   let { daysFirst } = options;
   const { parseAttachments } = options;
 

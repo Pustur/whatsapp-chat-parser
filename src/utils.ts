@@ -15,6 +15,14 @@ function isNegative(number) {
 }
 
 /**
+ * Return the difference between the arguments `length` property for sorting
+ * purposes.
+ */
+function sortByLengthAsc<T extends { length: number }>(a: T, b: T) {
+  return a.length - b.length;
+}
+
+/**
  * Given an array of arrays and an index, gropus the inner arrays by the value
  * at the index provided
  * See test cases for a better understanding of this function
@@ -39,4 +47,9 @@ function groupArrayByValueAtIndex(array, index): any[][][] {
   );
 }
 
-export { indexAboveValue, isNegative, groupArrayByValueAtIndex };
+export {
+  indexAboveValue,
+  isNegative,
+  sortByLengthAsc,
+  groupArrayByValueAtIndex,
+};
