@@ -1,10 +1,10 @@
-const { daysBeforeMonths, normalizeDate } = require('./date.js');
-const {
+import { daysBeforeMonths, normalizeDate } from './date';
+import {
   regexSplitTime,
   convertTime12to24,
   normalizeAMPM,
   normalizeTime,
-} = require('./time.js');
+} from './time';
 
 const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
 const regexParserSystem = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? ([^]+)/i;
@@ -88,7 +88,8 @@ function parseMessages(
   if (typeof daysFirst !== 'boolean') {
     const numericDates = Array.from(
       new Set(parsed.map(({ date }) => date)),
-      date => date.split(regexSplitDate).sort(sortByLengthAsc).map(Number),
+      (date: any) =>
+        date.split(regexSplitDate).sort(sortByLengthAsc).map(Number),
     );
 
     daysFirst = daysBeforeMonths(numericDates);
@@ -113,8 +114,8 @@ function parseMessages(
       ampm ? convertTime12to24(time, normalizeAMPM(ampm)) : time,
     ).split(regexSplitTime);
 
-    const finalObject = {
-      date: new Date(year, month - 1, day, hours, minutes, seconds),
+    const finalObject: any = {
+      date: new Date(year, month - 1, day, +hours, +minutes, +seconds),
       author,
       message,
     };
@@ -128,7 +129,4 @@ function parseMessages(
   });
 }
 
-module.exports = {
-  makeArrayOfMessages,
-  parseMessages,
-};
+export { makeArrayOfMessages, parseMessages };

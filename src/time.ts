@@ -32,9 +32,4 @@ function normalizeAMPM(ampm) {
   return ampm.replace(/[^apm]/gi, '').toUpperCase();
 }
 
-module.exports = {
-  regexSplitTime,
-  convertTime12to24,
-  normalizeTime,
-  normalizeAMPM,
-};
+export { regexSplitTime, convertTime12to24, normalizeTime, normalizeAMPM };

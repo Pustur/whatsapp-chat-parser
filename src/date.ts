@@ -1,8 +1,4 @@
-const {
-  indexAboveValue,
-  isNegative,
-  groupArrayByValueAtIndex,
-} = require('./utils.js');
+import { indexAboveValue, isNegative, groupArrayByValueAtIndex } from './utils';
 
 /**
  * Takes an array of numeric dates and tries to understand if the days come
@@ -127,7 +123,7 @@ function normalizeDate(year, month, day) {
   ];
 }
 
-module.exports = {
+export {
   checkAbove12,
   checkDecreasing,
   changeFrequencyAnalysis,

@@ -1,4 +1,4 @@
-const { makeArrayOfMessages, parseMessages } = require('./parser.js');
+import { makeArrayOfMessages, parseMessages } from './parser';
 
 /**
  * Given a string it will parse its content
@@ -11,4 +11,4 @@ function parseString(string, options) {
     .then(messages => parseMessages(messages, options));
 }
 
-module.exports = { parseString };
+export { parseString };

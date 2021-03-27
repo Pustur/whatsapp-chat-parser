@@ -19,7 +19,7 @@ function isNegative(number) {
  * at the index provided
  * See test cases for a better understanding of this function
  */
-function groupArrayByValueAtIndex(array, index) {
+function groupArrayByValueAtIndex(array, index): any[][][] {
   return Object.values(
     array.reduce((obj, item) => {
       /**
@@ -39,4 +39,4 @@ function groupArrayByValueAtIndex(array, index) {
   );
 }
 
-module.exports = { indexAboveValue, isNegative, groupArrayByValueAtIndex };
+export { indexAboveValue, isNegative, groupArrayByValueAtIndex };
