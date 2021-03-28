@@ -15,6 +15,8 @@
     }
   },
   "rules": {
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
     "no-param-reassign": ["error", { "props": false }]
   }
 }
