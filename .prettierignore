@@ -1,2 +1,6 @@
+coverage/
+dist/
+types/
+
 package-lock.json
 tsconfig.json
