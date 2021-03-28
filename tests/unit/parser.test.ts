@@ -211,7 +211,7 @@ describe('parser.js', () => {
         });
 
         it('should correctly parse the attachment string', () => {
-          expect(parsedWithAttachments[0].attachment!.fileName).toBe(
+          expect(parsedWithAttachments[0]?.attachment?.fileName).toBe(
             '00000042-PHOTO-2020-06-07-15-13-20.jpg',
           );
         });

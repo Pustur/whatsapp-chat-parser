@@ -19,7 +19,7 @@ const regexAttachment = /<.+:(.+)>/;
  * It also labels the system messages
  * The result is an array of messages
  */
-function makeArrayOfMessages(lines: string[]) {
+function makeArrayOfMessages(lines: string[]): PartialMessage[] {
   return lines.reduce((acc: PartialMessage[], line) => {
     /**
      * If the line doesn't conform to the regex it's probably part of the
@@ -36,11 +36,12 @@ function makeArrayOfMessages(lines: string[]) {
 
       // Else it's part of the previous message and it should be concatenated
       else if (typeof acc[acc.length - 1] !== 'undefined') {
-        const prevMessage = acc.pop();
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        const prevMessage = acc.pop()!;
 
         acc.push({
-          system: prevMessage!.system,
-          msg: `${prevMessage!.msg}\n${line}`,
+          system: prevMessage.system,
+          msg: `${prevMessage.msg}\n${line}`,
         });
       }
     } else {
@@ -65,7 +66,7 @@ function parseMessageAttachment(message: string) {
 function parseMessages(
   messages: PartialMessage[],
   options: ParseStringOptions = { parseAttachments: false },
-) {
+): Message[] {
   let { daysFirst } = options;
   const { parseAttachments } = options;
 
