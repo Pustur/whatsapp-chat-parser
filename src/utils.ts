@@ -27,9 +27,12 @@ function sortByLengthAsc<T extends { length: number }>(a: T, b: T): number {
  * at the index provided
  * See test cases for a better understanding of this function
  */
-function groupArrayByValueAtIndex<T>(array: T[][], index: number): T[][][] {
+function groupArrayByValueAtIndex<T extends unknown[]>(
+  array: T[],
+  index: number,
+): T[][] {
   return Object.values(
-    array.reduce((obj: { [key: string]: T[][] }, item) => {
+    array.reduce((obj: { [key: string]: T[] }, item) => {
       /**
        * Keys that are only numbers get sorted when using Object.values()
        * Adding a prefix avoids this issue
