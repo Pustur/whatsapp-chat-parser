@@ -3,4 +3,4 @@
 
 npm run format:staged
 npm run lint
-npm run test:unit
+npm t
