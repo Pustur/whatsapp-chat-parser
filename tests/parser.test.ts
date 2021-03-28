@@ -1,4 +1,4 @@
-import { makeArrayOfMessages, parseMessages } from '../../src/parser';
+import { makeArrayOfMessages, parseMessages } from '../src/parser';
 
 describe('parser.js', () => {
   describe('makeArrayOfMessages', () => {

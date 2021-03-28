@@ -2,7 +2,7 @@ import {
   indexAboveValue,
   isNegative,
   groupArrayByValueAtIndex,
-} from '../../src/utils';
+} from '../src/utils';
 
 describe('utils.js', () => {
   describe('indexAboveValue', () => {

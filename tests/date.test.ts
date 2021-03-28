@@ -3,7 +3,7 @@ import {
   checkDecreasing,
   changeFrequencyAnalysis,
   normalizeDate,
-} from '../../src/date';
+} from '../src/date';
 
 describe('date.js', () => {
   describe('checkAbove12', () => {

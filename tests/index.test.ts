@@ -1,4 +1,4 @@
-import * as whatsappParser from '../../src/index';
+import * as whatsappParser from '../src/index';
 
 describe('index.js', () => {
   describe('parseString', () => {
