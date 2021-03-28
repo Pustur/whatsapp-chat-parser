@@ -7,7 +7,7 @@ import { indexAboveValue, isNegative, groupArrayByValueAtIndex } from './utils';
  * Output is true if days are first, false if they are second, or null if it
  * failed to understand the order
  */
-function checkAbove12(numericDates: number[][]) {
+function checkAbove12(numericDates: number[][]): boolean | null {
   const daysFirst = numericDates.some(indexAboveValue(0, 12));
 
   if (daysFirst) return true;
@@ -29,7 +29,7 @@ function checkAbove12(numericDates: number[][]) {
  * Output is true if days are first, false if they are second, or null if it
  * failed to understand the order
  */
-function checkDecreasing(numericDates: number[][]) {
+function checkDecreasing(numericDates: number[][]): boolean | null {
   const datesByYear = groupArrayByValueAtIndex(numericDates, 2);
   const results = datesByYear.map(dates => {
     const daysFirst = dates.slice(1).some((date, i) => {
@@ -72,7 +72,7 @@ function checkDecreasing(numericDates: number[][]) {
  * Output is true if days are first, false if they are second, or null if it
  * failed to understand the order
  */
-function changeFrequencyAnalysis(numericDates: number[][]) {
+function changeFrequencyAnalysis(numericDates: number[][]): boolean | null {
   const diffs = numericDates
     .slice(1)
     .map((date, i) => date.map((num, j) => Math.abs(numericDates[i][j] - num)));
@@ -100,7 +100,7 @@ function changeFrequencyAnalysis(numericDates: number[][]) {
  * Output is true if days are first, false if they are second, or null if it
  * failed to understand the order
  */
-function daysBeforeMonths(numericDates: number[][]) {
+function daysBeforeMonths(numericDates: number[][]): boolean | null {
   const firstCheck = checkAbove12(numericDates);
 
   if (firstCheck !== null) return firstCheck;
@@ -115,7 +115,11 @@ function daysBeforeMonths(numericDates: number[][]) {
 /**
  * Takes year, month and day as strings and pads them as needed
  */
-function normalizeDate(year: string, month: string, day: string) {
+function normalizeDate(
+  year: string,
+  month: string,
+  day: string,
+): [string, string, string] {
   return [
     year.padStart(4, '2000'),
     month.padStart(2, '0'),

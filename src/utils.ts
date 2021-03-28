@@ -3,14 +3,14 @@
  * value
  */
 function indexAboveValue(index: number, value: number) {
-  return (array: number[]) => array[index] > value;
+  return (array: number[]): boolean => array[index] > value;
 }
 
 /**
  * Returns true for a negative number, false otherwise
  * 0 is considered positive
  */
-function isNegative(number: number) {
+function isNegative(number: number): boolean {
   return number < 0;
 }
 
@@ -18,7 +18,7 @@ function isNegative(number: number) {
  * Return the difference between the arguments `length` property for sorting
  * purposes.
  */
-function sortByLengthAsc<T extends { length: number }>(a: T, b: T) {
+function sortByLengthAsc<T extends { length: number }>(a: T, b: T): number {
   return a.length - b.length;
 }
 
@@ -27,7 +27,7 @@ function sortByLengthAsc<T extends { length: number }>(a: T, b: T) {
  * at the index provided
  * See test cases for a better understanding of this function
  */
-function groupArrayByValueAtIndex<T>(array: T[][], index: number) {
+function groupArrayByValueAtIndex<T>(array: T[][], index: number): T[][][] {
   return Object.values(
     array.reduce((obj: { [key: string]: T[][] }, item) => {
       /**
