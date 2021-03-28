@@ -16,7 +16,7 @@
     "test:coverage": "npm t -- --coverage",
     "test:unit": "jest tests/unit",
     "test:integration": "npm run build && jest tests/integration",
-    "clean": "rimraf dist/",
+    "clean": "rimraf dist/ types/",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:staged": "pretty-quick --staged",
