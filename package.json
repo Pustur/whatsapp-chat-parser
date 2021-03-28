@@ -18,9 +18,9 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:staged": "pretty-quick --staged",
-    "prepack": "pinst --disable",
+    "prepack": "npm run build && pinst --disable",
     "postpack": "pinst --enable",
-    "prepublishOnly": "npm t && pinst --disable",
+    "prepublishOnly": "npm run build && npm t && pinst --disable",
     "postinstall": "husky install",
     "postpublish": "pinst --enable"
   },
