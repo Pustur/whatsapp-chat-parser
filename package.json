@@ -11,7 +11,6 @@
   "scripts": {
     "build": "npm run clean && npm run build:types && rollup -c",
     "build:types": "tsc --emitDeclarationOnly",
-    "pretest": "npm run build",
     "test": "jest",
     "test:watch": "jest tests/unit --watchAll",
     "test:coverage": "npm t -- --coverage",
