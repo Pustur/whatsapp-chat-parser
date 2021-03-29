@@ -10,7 +10,7 @@ import { Message, ParseStringOptions } from './types';
  */
 export function parseString(
   string: string,
-  options?: ParseStringOptions,
+  options: ParseStringOptions = { parseAttachments: false },
 ): Promise<Message[]> {
   return Promise.resolve(string)
     .then(data => data.split(/(?:\r\n|\r|\n)/))

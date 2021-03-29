@@ -39,11 +39,9 @@ function groupArrayByValueAtIndex<T extends unknown[]>(
        * when using `Object.values()`.
        * Adding a prefix avoids this issue.
        */
-      const key = `key_${item[index]}`;
+      const key = `_${item[index]}`;
 
-      if (!obj[key]) {
-        obj[key] = [];
-      }
+      if (!obj[key]) obj[key] = [];
 
       obj[key].push(item);
 

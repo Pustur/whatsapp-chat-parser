@@ -67,7 +67,7 @@ function parseMessageAttachment(message: string) {
  */
 function parseMessages(
   messages: PartialMessage[],
-  options: ParseStringOptions = { parseAttachments: false },
+  options: ParseStringOptions = {},
 ): Message[] {
   let { daysFirst } = options;
   const { parseAttachments } = options;
