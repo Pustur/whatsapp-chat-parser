@@ -5,7 +5,7 @@ import {
   normalizeAMPM,
   normalizeTime,
 } from './time';
-import { Message, PartialMessage, ParseStringOptions } from './types';
+import { Attachment, Message, RawMessage, ParseStringOptions } from './types';
 import { sortByLengthAsc } from './utils';
 
 const regexParser = /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.? ?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
@@ -19,8 +19,8 @@ const regexAttachment = /<.+:(.+)>/;
  *
  * It also labels messages without an author as system messages.
  */
-function makeArrayOfMessages(lines: string[]): PartialMessage[] {
-  return lines.reduce((acc: PartialMessage[], line) => {
+function makeArrayOfMessages(lines: string[]): RawMessage[] {
+  return lines.reduce((acc: RawMessage[], line) => {
     /*
      * If the line doesn't match the regex it's probably part of the previous
      * message or a "WhatsApp event"
@@ -55,7 +55,7 @@ function makeArrayOfMessages(lines: string[]): PartialMessage[] {
 /**
  * Parses a message extracting the attachment if it's present.
  */
-function parseMessageAttachment(message: string) {
+function parseMessageAttachment(message: string): Attachment | null {
   const attachmentMatch = message.match(regexAttachment);
 
   if (attachmentMatch) return { fileName: attachmentMatch[1].trim() };
@@ -66,7 +66,7 @@ function parseMessageAttachment(message: string) {
  * Parses and array of raw messages into an array of structured objects.
  */
 function parseMessages(
-  messages: PartialMessage[],
+  messages: RawMessage[],
   options: ParseStringOptions = {},
 ): Message[] {
   let { daysFirst } = options;
@@ -104,9 +104,9 @@ function parseMessages(
 
   // Convert date and time in a `Date` object, return the final object
   return parsed.map(({ date, time, ampm, author, message }) => {
-    let day;
-    let month;
-    let year;
+    let day: string;
+    let month: string;
+    let year: string;
     const splitDate = date.split(regexSplitDate).sort(sortByLengthAsc);
 
     if (daysFirst === false) {

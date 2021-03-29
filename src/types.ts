@@ -1,6 +1,13 @@
-interface PartialMessage {
+interface RawMessage {
   system: boolean;
   msg: string;
+}
+
+interface Attachment {
+  /**
+   * The filename of the attachment, including the extension.
+   */
+  fileName: string;
 }
 
 interface Message {
@@ -20,12 +27,7 @@ interface Message {
    * Available for messages containing attachments when setting the option
    * `parseAttachments` to `true`.
    */
-  attachment?: {
-    /**
-     * The filename of the attachment, including the extension.
-     */
-    fileName: string;
-  };
+  attachment?: Attachment;
 }
 
 interface ParseStringOptions {
@@ -45,4 +47,4 @@ interface ParseStringOptions {
   parseAttachments?: boolean;
 }
 
-export { PartialMessage, Message, ParseStringOptions };
+export { RawMessage, Attachment, Message, ParseStringOptions };
