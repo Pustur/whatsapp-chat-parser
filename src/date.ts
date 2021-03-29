@@ -2,10 +2,11 @@ import { indexAboveValue, isNegative, groupArrayByValueAtIndex } from './utils';
 
 /**
  * Takes an array of numeric dates and tries to understand if the days come
- * before the month or the other way around by checking if numbers go above 12
+ * before the month or the other way around by checking if numbers go above
+ * `12`.
  *
- * Output is true if days are first, false if they are second, or null if it
- * failed to understand the order
+ * Output is `true` if days are first, `false` if they are second, or `null` if
+ * it failed to understand the order.
  */
 function checkAbove12(numericDates: number[][]): boolean | null {
   const daysFirst = numericDates.some(indexAboveValue(0, 12));
@@ -22,12 +23,13 @@ function checkAbove12(numericDates: number[][]): boolean | null {
 /**
  * Takes an array of numeric dates and tries to understand if the days come
  * before the month or the other way around by checking if a set of numbers
- * during the same year decrease at some point
- * If it does it's probably the days since months can only increase in a given
- * year
+ * during the same year decrease at some point.
  *
- * Output is true if days are first, false if they are second, or null if it
- * failed to understand the order
+ * If it does it's probably the
+ * days since months can only increase in a given year.
+ *
+ * Output is `true` if days are first, `false` if they are second, or `null` if
+ * it failed to understand the order.
  */
 function checkDecreasing(numericDates: number[][]): boolean | null {
   const datesByYear = groupArrayByValueAtIndex(numericDates, 2);
@@ -67,10 +69,10 @@ function checkDecreasing(numericDates: number[][]): boolean | null {
 /**
  * Takes an array of numeric dates and tries to understand if the days come
  * before the month or the other way around by looking at which number changes
- * more frequently
+ * more frequently.
  *
- * Output is true if days are first, false if they are second, or null if it
- * failed to understand the order
+ * Output is `true` if days are first, `false` if they are second, or `null` if
+ * it failed to understand the order.
  */
 function changeFrequencyAnalysis(numericDates: number[][]): boolean | null {
   const diffs = numericDates
@@ -94,11 +96,11 @@ function changeFrequencyAnalysis(numericDates: number[][]): boolean | null {
 
 /**
  * Takes an array of numeric dates and tries to understand if the days come
- * before the month or the other way around by running the dates through all
- * checks (checkAbove12, checkDecreasing, changeFrequencyAnalysis)
+ * before the month or the other way around by running the dates through various
+ * checks.
  *
- * Output is true if days are first, false if they are second, or null if it
- * failed to understand the order
+ * Output is `true` if days are first, `false` if they are second, or `null` if
+ * it failed to understand the order.
  */
 function daysBeforeMonths(numericDates: number[][]): boolean | null {
   const firstCheck = checkAbove12(numericDates);
@@ -113,7 +115,8 @@ function daysBeforeMonths(numericDates: number[][]): boolean | null {
 }
 
 /**
- * Takes year, month and day as strings and pads them as needed
+ * Takes `year`, `month` and `day` as strings and pads them to `4`, `2`, `2`
+ * digits respectively.
  */
 function normalizeDate(
   year: string,
@@ -121,6 +124,7 @@ function normalizeDate(
   day: string,
 ): [string, string, string] {
   return [
+    // 2 digit years are assumed to be in the 2000-2099 range
     year.padStart(4, '2000'),
     month.padStart(2, '0'),
     day.padStart(2, '0'),

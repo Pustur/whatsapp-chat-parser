@@ -19,14 +19,14 @@ describe('parser.js', () => {
     it('should not flag normal messages as system messages', () => {
       expect(makeArrayOfMessages(multilineMessage)[0].system).toBe(false);
 
-      /**
-       * Sometimes a message could be empty (for reasons unknown) but should
+      /*
+       * Sometimes a message could be empty (for unknown reasons) but should
        * still not be labeled as a system message
        */
       expect(makeArrayOfMessages(emptyMessage)[0].system).toBe(false);
 
-      /**
-       * In the unlikely case that whatsapp would start using multiline messages
+      /*
+       * In the unlikely case that WhatsApp would start using multiline messages
        * for system notifications we should account for it
        */
       expect(makeArrayOfMessages(multilineSystemMessage)[0].system).toBe(true);
@@ -120,8 +120,8 @@ describe('parser.js', () => {
     });
 
     describe('formats', () => {
-      /**
-       * Examples of various date formats found in whatsapp chats
+      /*
+       * Examples of various date formats found in WhatsApp chats
        *
        * m/d/yy, h:mm
        * m/d/yy, h:mm PM

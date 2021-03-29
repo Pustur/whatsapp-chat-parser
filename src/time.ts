@@ -1,8 +1,10 @@
 const regexSplitTime = /[:.]/;
 
 /**
- * Converts time from 12 hour format to 24 hour format
- * From: https://stackoverflow.com/a/40197728/5303634
+ * Converts time from 12 hour format to 24 hour format.
+ *
+ * Reference:
+ * {@link https://stackoverflow.com/a/40197728/5303634}
  */
 function convertTime12to24(time: string, ampm: string): string {
   // eslint-disable-next-line prefer-const
@@ -15,7 +17,7 @@ function convertTime12to24(time: string, ampm: string): string {
 }
 
 /**
- * Normalizes a time string to have the following format: hh:mm:ss
+ * Normalizes a time string to have the following format: `hh:mm:ss`.
  */
 function normalizeTime(time: string): string {
   const [hours, minutes, seconds] = time.split(regexSplitTime);
@@ -26,7 +28,7 @@ function normalizeTime(time: string): string {
 }
 
 /**
- * Normalizes am / a.m. / etc. to AM (uppercase, no other characters)
+ * Normalizes `am` / `a.m.` / etc. to `AM` (uppercase, no other characters).
  */
 function normalizeAMPM(ampm: string): string {
   return ampm.replace(/[^apm]/gi, '').toUpperCase();

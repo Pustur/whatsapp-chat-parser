@@ -2,8 +2,11 @@ import { makeArrayOfMessages, parseMessages } from './parser';
 import { Message, ParseStringOptions } from './types';
 
 /**
- * Given a string it will parse its content
- * Returns a promise that will contain the parsed messages
+ * Parses a string containing a WhatsApp chat log.
+ *
+ * Returns a promise that will contain the parsed messages.
+ *
+ * @since 1.2.0
  */
 export function parseString(
   string: string,

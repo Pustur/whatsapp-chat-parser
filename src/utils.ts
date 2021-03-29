@@ -1,14 +1,15 @@
 /**
- * Checks that an item at a certain index of an array is greater than a certain
- * value
+ * Checks that the number at a certain index of an array is greater than a
+ * certain value.
  */
 function indexAboveValue(index: number, value: number) {
   return (array: number[]): boolean => array[index] > value;
 }
 
 /**
- * Returns true for a negative number, false otherwise
- * 0 is considered positive
+ * Returns `true` for a negative number, `false` otherwise.
+ *
+ * `0` and `-0` are considered positive.
  */
 function isNegative(number: number): boolean {
   return number < 0;
@@ -23,9 +24,9 @@ function sortByLengthAsc<T extends { length: number }>(a: T, b: T): number {
 }
 
 /**
- * Given an array of arrays and an index, gropus the inner arrays by the value
- * at the index provided
- * See test cases for a better understanding of this function
+ * Takes an array of arrays and an index and groups the inner arrays by the
+ * value at the index provided.
+ * @see `utils.test.ts` for a better understanding of this function.
  */
 function groupArrayByValueAtIndex<T extends unknown[]>(
   array: T[],
@@ -33,9 +34,10 @@ function groupArrayByValueAtIndex<T extends unknown[]>(
 ): T[][] {
   return Object.values(
     array.reduce((obj: { [key: string]: T[] }, item) => {
-      /**
-       * Keys that are only numbers get sorted when using Object.values()
-       * Adding a prefix avoids this issue
+      /*
+       * Keys that are numbers (even strings containing a number) get sorted
+       * when using `Object.values()`.
+       * Adding a prefix avoids this issue.
        */
       const key = `key_${item[index]}`;
 

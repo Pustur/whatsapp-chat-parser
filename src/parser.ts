@@ -14,21 +14,21 @@ const regexSplitDate = /[-/.] ?/;
 const regexAttachment = /<.+:(.+)>/;
 
 /**
- * Given an array of lines, detects the lines that are part of a previous
- * message (multiline messages) and merges them
- * It also labels the system messages
- * The result is an array of messages
+ * Takes an array of lines and detects the lines that are part of a previous
+ * message (multiline messages) and merges them.
+ *
+ * It also labels messages without an author as system messages.
  */
 function makeArrayOfMessages(lines: string[]): PartialMessage[] {
   return lines.reduce((acc: PartialMessage[], line) => {
-    /**
-     * If the line doesn't conform to the regex it's probably part of the
-     * previous message or a "whatsapp event"
+    /*
+     * If the line doesn't match the regex it's probably part of the previous
+     * message or a "WhatsApp event"
      */
     if (!regexParser.test(line)) {
-      /**
+      /*
        * If it doesn't match the first regex but still matches the system regex
-       * it should be considered a "whatsapp event" so it gets labeled "system"
+       * it should be considered a "WhatsApp event" so it gets labeled "system"
        */
       if (regexParserSystem.test(line)) {
         acc.push({ system: true, msg: line });
@@ -52,6 +52,9 @@ function makeArrayOfMessages(lines: string[]): PartialMessage[] {
   }, []);
 }
 
+/**
+ * Parses a message extracting the attachment if it's present.
+ */
 function parseMessageAttachment(message: string) {
   const attachmentMatch = message.match(regexAttachment);
 
@@ -60,8 +63,7 @@ function parseMessageAttachment(message: string) {
 }
 
 /**
- * Given an array of messages, parses them and returns an object with the fields
- * date, author, message
+ * Parses and array of raw messages into an array of structured objects.
  */
 function parseMessages(
   messages: PartialMessage[],
@@ -90,7 +92,7 @@ function parseMessages(
     return { date, time, ampm: ampm || null, author, message };
   });
 
-  // Understand date format if not supplied (days come first?)
+  // Understand date format if not supplied (do days come first?)
   if (typeof daysFirst !== 'boolean') {
     const numericDates = Array.from(
       new Set(parsed.map(({ date }) => date)),
@@ -100,7 +102,7 @@ function parseMessages(
     daysFirst = daysBeforeMonths(numericDates);
   }
 
-  // Convert date/time in date object, return final object
+  // Convert date and time in a `Date` object, return the final object
   return parsed.map(({ date, time, ampm, author, message }) => {
     let day;
     let month;
@@ -125,6 +127,7 @@ function parseMessages(
       message,
     };
 
+    // Optionally parse attachments
     if (parseAttachments) {
       const attachment = parseMessageAttachment(message);
       if (attachment) finalObject.attachment = attachment;
