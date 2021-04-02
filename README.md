@@ -1,5 +1,6 @@
 # WhatsApp Chat Parser
 
+![GitHub Actions](https://github.com/Pustur/whatsapp-chat-parser/workflows/ci.yml/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/Pustur/whatsapp-chat-parser/branch/master/graph/badge.svg)](https://codecov.io/gh/Pustur/whatsapp-chat-parser)
 [![npm version](https://img.shields.io/npm/v/whatsapp-chat-parser.svg)](https://www.npmjs.com/package/whatsapp-chat-parser)
 [![minified size](https://img.shields.io/bundlephobia/min/whatsapp-chat-parser.svg)](https://bundlephobia.com/result?p=whatsapp-chat-parser)
