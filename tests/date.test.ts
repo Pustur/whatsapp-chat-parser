@@ -1,9 +1,9 @@
-const {
+import {
   checkAbove12,
   checkDecreasing,
   changeFrequencyAnalysis,
   normalizeDate,
-} = require('../../src/date.js');
+} from '../src/date';
 
 describe('date.js', () => {
   describe('checkAbove12', () => {

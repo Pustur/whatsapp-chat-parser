@@ -134,7 +134,7 @@ A configuration object, more details below
 <!-- prettier-ignore-start -->
 | Name | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| daysFirst | `Boolean` | `undefined` | Specify if the dates in your log file start with a day (`true`) or a month (`false`). Manually specifying this may improve performance. By default the program will try to infer this information using 3 different methods (look at [`date.js`](src/date.js) for the implementation), if all fails it defaults to interpret the first digit as the day. |
+| daysFirst | `Boolean` | `undefined` | Specify if the dates in your log file start with a day (`true`) or a month (`false`). Manually specifying this may improve performance. By default the program will try to infer this information using 3 different methods (look at [`date.ts`](src/date.ts) for the implementation), if all fails it defaults to days first. |
 | parseAttachments | `Boolean` | `false` | Specify if attachments should be parsed. If set to `true`, messages with attachments will include an `attachment` property with information about the attachment. |
 <!-- prettier-ignore-end -->
 
@@ -145,6 +145,7 @@ A configuration object, more details below
 
 ## Technologies used
 
+- Language: [TypeScript](https://www.typescriptlang.org/)
 - Testing: [Jest](https://jestjs.io/)
 - Code formatting: [Prettier](https://prettier.io/)
 - Linting: [ESLint](https://eslint.org/) (with [Airbnb rules](https://www.npmjs.com/package/eslint-config-airbnb-base))
@@ -157,7 +158,7 @@ A configuration object, more details below
 
 ### Browser
 
-This package is written in ES6.  
+This package is written in TypeScript with target compilation to ES6.  
 It should work in all relevant browsers from ~2017 onwards.
 
 ## Changelog

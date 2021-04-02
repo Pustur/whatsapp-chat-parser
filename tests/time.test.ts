@@ -1,8 +1,4 @@
-const {
-  convertTime12to24,
-  normalizeTime,
-  normalizeAMPM,
-} = require('../../src/time.js');
+import { convertTime12to24, normalizeTime, normalizeAMPM } from '../src/time';
 
 describe('time.js', () => {
   describe('convertTime12to24', () => {
