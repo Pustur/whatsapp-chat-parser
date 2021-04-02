@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.1] - 2021-04-02
+
+### Changed
+
+- Complete rewrite of the package in TypeScript
+- Migrated from CircleCI to GitHub Actions
+- Upgraded dev dependencies
+
 ## [3.1.0] - 2021-01-12
 
 ### Added
@@ -13,7 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Improved typescript types
+- Improved TypeScript types
 - Updated readme with info on new `parseAttachments` option
 - Upgraded dev dependencies
 
@@ -39,7 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Codecov badge in readme (collect coverage info in Circleci)
+- Codecov badge in readme (collect coverage info in CircleCI)
 
 ### Changed
 
@@ -83,7 +91,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Typescript types definition file
+- TypeScript types definition file
 
 ### Changed
 
@@ -180,7 +188,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Circleci for continuous integration
+- CircleCI for continuous integration
 - Install instructions in readme
 
 ### Fixed
@@ -191,6 +199,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
+[3.1.1]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.1.0...3.1.1
 [3.1.0]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.0.2...3.1.0
 [3.0.2]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.0.1...3.0.2
 [3.0.1]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.0.0...3.0.1
