@@ -1,5 +1,4 @@
 {
   "extends": ["config:js-lib", "schedule:monthly"],
-  "baseBranches": ["develop"],
-  "circleci": { "enabled": false }
+  "baseBranches": ["develop"]
 }
