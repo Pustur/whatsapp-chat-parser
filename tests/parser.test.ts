@@ -195,8 +195,7 @@ describe('parser.js', () => {
         const messages = [
           {
             system: false,
-            msg:
-              '3/6/18, 1:55 p.m. - a: < attached: 00000042-PHOTO-2020-06-07-15-13-20.jpg >',
+            msg: '3/6/18, 1:55 p.m. - a: < attached: 00000042-PHOTO-2020-06-07-15-13-20.jpg >',
           },
           {
             system: false,
