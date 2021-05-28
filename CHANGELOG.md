@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.2] - 2021-05-28
+
+### Added
+
+- Some issue links in the changelog
+
+### Changed
+
+- Upgraded dev dependencies
+
+### Fixed
+
+- Issue in parsing the message when there would be a non breaking space in the `AM/PM` portion of the date [#224](https://github.com/Pustur/whatsapp-chat-parser/issues/224)
+
 ## [3.1.1] - 2021-04-02
 
 ### Changed
@@ -17,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `parseAttachments` option
+- `parseAttachments` option [#198](https://github.com/Pustur/whatsapp-chat-parser/issues/198)
 
 ### Changed
 
@@ -91,7 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- TypeScript types definition file
+- TypeScript types definition file [#60](https://github.com/Pustur/whatsapp-chat-parser/issues/60)
 
 ### Changed
 
@@ -199,6 +213,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
+[3.1.2]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.1.1...3.1.2
 [3.1.1]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.1.0...3.1.1
 [3.1.0]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.0.2...3.1.0
 [3.0.2]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.0.1...3.0.2
