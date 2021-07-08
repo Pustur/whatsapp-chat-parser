@@ -1,17 +1,17 @@
 import * as whatsappParser from '../src/index';
 
-describe('index.js', () => {
-  describe('parseString', () => {
-    const shortChatPromise = whatsappParser.parseString(
-      `06/03/2017, 00:45 - Messages to this group are now secured with end-to-end encryption. Tap for more info.
+const chatExample = `06/03/2017, 00:45 - Messages to this group are now secured with end-to-end encryption. Tap for more info.
 06/03/2017, 00:45 - You created group "ShortChat"
 06/03/2017, 00:45 - Sample User: This is a test message
 08/05/2017, 01:48 - TestBot: Hey I'm a test too!
 09/04/2017, 01:50 - +410123456789: How are you?
 
 Is everything alright?
-`,
-    );
+`;
+
+describe('index.js', () => {
+  describe('parseString', () => {
+    const shortChatPromise = whatsappParser.parseString(chatExample);
 
     it('should return an empty array if an empty string is parsed', () => {
       expect.assertions(1);
@@ -35,6 +35,24 @@ Is everything alright?
           'How are you?\n\nIs everything alright?\n',
         );
       });
+    });
+  });
+
+  describe('parseStringSync', () => {
+    const messages = whatsappParser.parseStringSync(chatExample);
+
+    it('should return an empty array if an empty string is parsed', () => {
+      expect(whatsappParser.parseStringSync('')).toEqual([]);
+    });
+
+    it('should contain a correct amount of parsed messages', () => {
+      expect(messages).toHaveLength(5);
+    });
+
+    it('should not swallow empty lines', () => {
+      expect(messages[4].message).toBe(
+        'How are you?\n\nIs everything alright?\n',
+      );
     });
   });
 });
