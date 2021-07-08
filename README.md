@@ -129,6 +129,10 @@ Type: `object`
 
 A configuration object, more details below
 
+### parseStringSync(string, [options]) → Array
+
+Same as `parseString` but returns the messages directly instead of a promise.
+
 ## Options
 
 <!-- prettier-ignore-start -->
