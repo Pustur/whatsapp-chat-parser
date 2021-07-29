@@ -16,14 +16,6 @@ function isNegative(number: number): boolean {
 }
 
 /**
- * Return the difference between the arguments `length` property for sorting
- * purposes.
- */
-function sortByLengthAsc<T extends { length: number }>(a: T, b: T): number {
-  return a.length - b.length;
-}
-
-/**
  * Takes an array of arrays and an index and groups the inner arrays by the
  * value at the index provided.
  * @see `utils.test.ts` for a better understanding of this function.
@@ -50,9 +42,4 @@ function groupArrayByValueAtIndex<T extends unknown[]>(
   );
 }
 
-export {
-  indexAboveValue,
-  isNegative,
-  sortByLengthAsc,
-  groupArrayByValueAtIndex,
-};
+export { indexAboveValue, isNegative, groupArrayByValueAtIndex };

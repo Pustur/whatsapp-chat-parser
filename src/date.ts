@@ -25,8 +25,8 @@ function checkAbove12(numericDates: number[][]): boolean | null {
  * before the month or the other way around by checking if a set of numbers
  * during the same year decrease at some point.
  *
- * If it does it's probably the
- * days since months can only increase in a given year.
+ * If it does it's probably the days since months can only increase in a given
+ * year.
  *
  * Output is `true` if days are first, `false` if they are second, or `null` if
  * it failed to understand the order.
@@ -131,10 +131,25 @@ function normalizeDate(
   ];
 }
 
+/**
+ * Pushes the longest number in a date to the end, if there is one. Necessary to
+ * ensure the year is the last number.
+ */
+function orderDateComponents(date: string): [string, string, string] {
+  const regexSplitDate = /[-/.] ?/;
+  const [a, b, c] = date.split(regexSplitDate);
+  const maxLength = Math.max(a.length, b.length, c.length);
+
+  if (c.length === maxLength) return [a, b, c];
+  if (b.length === maxLength) return [a, c, b];
+  return [b, c, a];
+}
+
 export {
   checkAbove12,
   checkDecreasing,
   changeFrequencyAnalysis,
   daysBeforeMonths,
   normalizeDate,
+  orderDateComponents,
 };

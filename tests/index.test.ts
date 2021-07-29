@@ -55,4 +55,15 @@ describe('index.js', () => {
       );
     });
   });
+
+  describe('fixes', () => {
+    it(`should pass for issue #237`, () => {
+      const messages = whatsappParser.parseStringSync(
+        '30/12/2020 13:00 - a: m\n13/1/2021 13:00 - a: m',
+      );
+
+      expect(messages[0].date.toISOString()).toBe('2020-12-30T13:00:00.000Z');
+      expect(messages[1].date.toISOString()).toBe('2021-01-13T13:00:00.000Z');
+    });
+  });
 });
