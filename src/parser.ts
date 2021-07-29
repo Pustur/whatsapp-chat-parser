@@ -1,4 +1,4 @@
-import { daysBeforeMonths, normalizeDate } from './date';
+import { daysBeforeMonths, normalizeDate, orderDateComponents } from './date';
 import {
   regexSplitTime,
   convertTime12to24,
@@ -6,13 +6,11 @@ import {
   normalizeTime,
 } from './time';
 import { Attachment, Message, RawMessage, ParseStringOptions } from './types';
-import { sortByLengthAsc } from './utils';
 
 const regexParser =
   /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?\s?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
 const regexParserSystem =
   /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?\s?m\.?))?\]?(?: -|:)? ([^]+)/i;
-const regexSplitDate = /[-/.] ?/;
 const regexAttachment = /<.+:(.+)>|([A-Z\d-]+\.\w+)\s\(.+\)/;
 
 /**
@@ -100,7 +98,7 @@ function parseMessages(
   if (typeof daysFirst !== 'boolean') {
     const numericDates = Array.from(
       new Set(parsed.map(({ date }) => date)),
-      date => date.split(regexSplitDate).sort(sortByLengthAsc).map(Number),
+      date => orderDateComponents(date).map(Number),
     );
 
     daysFirst = daysBeforeMonths(numericDates);
@@ -111,7 +109,7 @@ function parseMessages(
     let day: string;
     let month: string;
     let year: string;
-    const splitDate = date.split(regexSplitDate).sort(sortByLengthAsc);
+    const splitDate = orderDateComponents(date);
 
     if (daysFirst === false) {
       [month, day, year] = splitDate;
