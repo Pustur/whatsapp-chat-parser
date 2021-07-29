@@ -25,8 +25,8 @@ function checkAbove12(numericDates: number[][]): boolean | null {
  * before the month or the other way around by checking if a set of numbers
  * during the same year decrease at some point.
  *
- * If it does it's probably the
- * days since months can only increase in a given year.
+ * If it does it's probably the days since months can only increase in a given
+ * year.
  *
  * Output is `true` if days are first, `false` if they are second, or `null` if
  * it failed to understand the order.
