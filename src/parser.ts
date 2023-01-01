@@ -11,7 +11,7 @@ const regexParser =
   /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?\s?m\.?))?\]?(?: -|:)? (.+?): ([^]*)/i;
 const regexParserSystem =
   /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.] ?\d{1,4}[-/.] ?\d{1,4})[,.]? \D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?: ([ap]\.?\s?m\.?))?\]?(?: -|:)? ([^]+)/i;
-const regexAttachment = /<.+:(.+)>|([A-Z\d-]+\.\w+)\s\(.+\)/;
+const regexAttachment = /<.+:(.+)>|([A-Z\d-]+\.\w+)\s[(<].+[)>]/;
 
 /**
  * Takes an array of lines and detects the lines that are part of a previous
