@@ -25,19 +25,31 @@ $ npm install whatsapp-chat-parser
 ### Node
 
 ```javascript
-const fs = require('fs');
-const whatsapp = require('whatsapp-chat-parser');
+import fs from 'node:fs';
+import whatsapp from 'whatsapp-chat-parser';
 
-const fileContents = fs.readFileSync('path/to/file.txt', 'utf8');
+// Sync
+const text = fs.readFileSync('path/to/_chat.txt', 'utf8');
+const messages = whatsapp.parseStringSync(text);
 
-whatsapp
-  .parseString(fileContents)
-  .then(messages => {
-    // Do whatever you want with messages
-  })
-  .catch(err => {
-    // Something went wrong
-  });
+console.log(messages);
+
+// Promise chain
+fs.promises
+  .readFile('path/to/_chat.txt', 'utf8')
+  .then(text => whatsapp.parseString(text))
+  .then(messages => console.log(messages))
+  .catch(error => console.error(error));
+
+// Promises with async / await
+try {
+  const text = await fs.promises.readFile('path/to/_chat.txt', 'utf8');
+  const messages = await whatsapp.parseString(text);
+
+  console.log(messages);
+} catch (error) {
+  console.error(error);
+}
 ```
 
 ### Browser
@@ -48,14 +60,11 @@ Then use it in your JavaScript code, the `whatsappChatParser` variable will be g
 ```html
 <script src="path/to/whatsapp-chat-parser.min.js"></script>
 <script>
-  whatsappChatParser
-    .parseString('06/03/2017, 00:45 - Sample User: This is a test message')
-    .then(messages => {
-      // Do whatever you want with messages
-    })
-    .catch(err => {
-      // Something went wrong
-    });
+  const messages = whatsappChatParser.parseStringSync(
+    '06/03/2017, 00:45 - Sample User: This is a test message',
+  );
+
+  console.log(messages);
 </script>
 ```
 
@@ -64,7 +73,7 @@ You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsap
 ```html
 <script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/whatsapp-chat-parser.min.js"></script>
 <!-- Or use a specific version -->
-<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@3.2.1/dist/whatsapp-chat-parser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@3.2.2/dist/whatsapp-chat-parser.min.js"></script>
 ```
 
 &nbsp;
