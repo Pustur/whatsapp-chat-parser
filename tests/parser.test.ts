@@ -148,6 +148,8 @@ describe('parser.js', () => {
       const format10 = [{ system: false, msg: '[06/2018/13, 21:25:15] a: m' }];
       // Format11 contains a non breaking space between the "p." and "m."
       const format11 = [{ system: false, msg: '3/6/2018 1:55 p. m. - a: m' }];
+      // Format12 contains a narrow non breaking space between the time and PM"
+      const format12 = [{ system: false, msg: '3/6/18, 1:55 PM - a: m' }];
 
       const parsed1 = parseMessages(format1);
       const parsed2 = parseMessages(format2);
@@ -160,6 +162,7 @@ describe('parser.js', () => {
       const parsed9 = parseMessages(format9);
       const parsed10 = parseMessages(format10);
       const parsed11 = parseMessages(format11);
+      const parsed12 = parseMessages(format12);
 
       const expected1 = '2018-06-03T13:55:00.000Z';
       const expected2 = '2018-06-13T21:25:15.000Z';
@@ -177,6 +180,7 @@ describe('parser.js', () => {
           expect(parsed9[0].date.toISOString()).toBe(expected2);
           expect(parsed10[0].date.toISOString()).toBe(expected2);
           expect(parsed11[0].date.toISOString()).toBe(expected1);
+          expect(parsed12[0].date.toISOString()).toBe(expected1);
         });
       });
     });
