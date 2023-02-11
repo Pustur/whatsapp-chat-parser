@@ -151,6 +151,13 @@ Same as `parseString` but returns the messages directly instead of a promise.
 | parseAttachments | `Boolean` | `false` | Specify if attachments should be parsed. If set to `true`, messages with attachments will include an `attachment` property with information about the attachment. |
 <!-- prettier-ignore-end -->
 
+## A note about messages order
+
+Sometimes, likely due to connection issues, WhatsApp exports contain messages that are not chronologically ordered.
+This library won't change the order of the messages, but if your application expects a certain order make sure to sort the array of messages accordingly before use.
+
+See [#247](https://github.com/Pustur/whatsapp-chat-parser/issues/247) for more info.
+
 ## How to export WhatsApp chats
 
 - [Android](https://faq.whatsapp.com/android/chats/how-to-save-your-chat-history)
