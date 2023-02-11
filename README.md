@@ -110,13 +110,13 @@ When using the option [`parseAttachments`](#options), the message may contain an
 ];
 ```
 
-In the case of a system message, the author will be `System`
+In the case of a system message, the author will be `null`
 
 ```javascript
 [
   {
     date: '2018-06-02T22:45:00.000Z', // Date object
-    author: 'System',
+    author: null,
     message: 'You created group "Party 🎉"',
   },
 ];

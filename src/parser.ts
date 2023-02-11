@@ -84,7 +84,7 @@ function parseMessages(
         msg,
       ) as RegExpExecArray;
 
-      return { date, time, ampm: ampm || null, author: 'System', message };
+      return { date, time, ampm: ampm || null, author: null, message };
     }
 
     const [, date, time, ampm, author, message] = regexParser.exec(

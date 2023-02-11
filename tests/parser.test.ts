@@ -108,7 +108,7 @@ describe('parser.js', () => {
 
       describe('the author', () => {
         it('should contain the correct author', () => {
-          expect(parsed[0].author).toBe('System');
+          expect(parsed[0].author).toBe(null);
         });
       });
 
