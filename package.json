@@ -2,17 +2,17 @@
   "name": "whatsapp-chat-parser",
   "version": "3.2.3",
   "description": "A package to parse WhatsApp chats with Node.js or in the browser 💬",
-  "main": "dist/whatsapp-chat-parser.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "npm run clean && rollup -c",
+    "build": "tsup",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "npm t -- --coverage",
-    "clean": "rimraf dist/",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:staged": "pretty-quick --staged",
@@ -47,7 +47,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-typescript": "8.3.4",
     "@types/jest": "29.4.0",
     "@typescript-eslint/eslint-plugin": "5.51.0",
     "@typescript-eslint/parser": "5.51.0",
@@ -61,11 +60,9 @@
     "pinst": "3.0.0",
     "prettier": "2.8.4",
     "pretty-quick": "3.1.3",
-    "rimraf": "4.1.2",
-    "rollup": "2.77.3",
-    "rollup-plugin-terser": "7.0.2",
     "set-tz": "0.2.0",
     "ts-jest": "29.0.5",
+    "tsup": "6.6.0",
     "typescript": "4.9.5"
   }
 }
