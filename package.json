@@ -13,7 +13,7 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "npm t -- --coverage",
-    "lint": "eslint .",
+    "lint": "tsc && eslint .",
     "format": "prettier --write .",
     "format:staged": "pretty-quick --staged",
     "prepack": "npm run build && pinst --disable",
