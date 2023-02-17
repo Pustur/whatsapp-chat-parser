@@ -1,5 +1,5 @@
 import { makeArrayOfMessages, parseMessages } from './parser';
-import { Message, ParseStringOptions } from './types';
+import { Attachment, Message, ParseStringOptions } from './types';
 
 const newlinesRegex = /(?:\r\n|\r|\n)/;
 
@@ -18,3 +18,5 @@ export function parseString(
   const lines = string.split(newlinesRegex);
   return parseMessages(makeArrayOfMessages(lines), options);
 }
+
+export type { Attachment, Message, ParseStringOptions };
