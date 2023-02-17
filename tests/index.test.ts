@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import * as whatsappParser from '../src/index';
 
 const chatExample = `06/03/2017, 00:45 - Messages to this group are now secured with end-to-end encryption. Tap for more info.

@@ -10,9 +10,9 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
-    "test:coverage": "npm t -- --coverage",
+    "test": "TZ=UTC vitest run",
+    "test:watch": "TZ=UTC vitest watch",
+    "test:coverage": "TZ=UTC vitest run --coverage",
     "lint": "tsc && eslint .",
     "format": "prettier --write .",
     "format:staged": "pretty-quick --staged",

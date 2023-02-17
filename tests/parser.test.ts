@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { makeArrayOfMessages, parseMessages } from '../src/parser';
 
 describe('parser.js', () => {

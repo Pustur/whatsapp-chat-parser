@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { convertTime12to24, normalizeTime, normalizeAMPM } from '../src/time';
 
 describe('time.js', () => {
