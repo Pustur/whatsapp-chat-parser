@@ -7,7 +7,11 @@
 
 > A package to parse WhatsApp chats with Node.js or in the browser 💬
 
-# Introduction
+## Important notice
+
+🚨 `v4.0.0` brings some **BREAKING CHANGES**, check out the [release page](https://github.com/Pustur/whatsapp-chat-parser/releases/tag/4.0.0) for more info.
+
+## Introduction
 
 This library allows you to parse WhatsApp chat logs from text format into javascript objects, enabling you to more easily manipulate the data, create statistics, export it in different formats, etc.
 
@@ -24,32 +28,14 @@ $ npm install whatsapp-chat-parser
 
 ### Node
 
-```javascript
+```js
 import fs from 'node:fs';
-import whatsapp from 'whatsapp-chat-parser';
+import * as whatsapp from 'whatsapp-chat-parser';
 
-// Sync
 const text = fs.readFileSync('path/to/_chat.txt', 'utf8');
-const messages = whatsapp.parseStringSync(text);
+const messages = whatsapp.parseString(text);
 
 console.log(messages);
-
-// Promise chain
-fs.promises
-  .readFile('path/to/_chat.txt', 'utf8')
-  .then(text => whatsapp.parseString(text))
-  .then(messages => console.log(messages))
-  .catch(error => console.error(error));
-
-// Promises with async / await
-try {
-  const text = await fs.promises.readFile('path/to/_chat.txt', 'utf8');
-  const messages = await whatsapp.parseString(text);
-
-  console.log(messages);
-} catch (error) {
-  console.error(error);
-}
 ```
 
 ### Browser
@@ -58,9 +44,23 @@ Add the script to your HTML file (usually just before the closing `</body>` tag)
 Then use it in your JavaScript code, the `whatsappChatParser` variable will be globally available.
 
 ```html
-<script src="path/to/whatsapp-chat-parser.min.js"></script>
+<script src="path/to/index.global.js"></script>
 <script>
-  const messages = whatsappChatParser.parseStringSync(
+  const messages = whatsappChatParser.parseString(
+    '06/03/2017, 00:45 - Sample User: This is a test message',
+  );
+
+  console.log(messages);
+</script>
+```
+
+Or with `type="module"` loading the ESM version:
+
+```html
+<script type="module">
+  import * as whatsapp from 'path/to/index.js';
+
+  const messages = whatsapp.parseString(
     '06/03/2017, 00:45 - Sample User: This is a test message',
   );
 
@@ -71,16 +71,16 @@ Then use it in your JavaScript code, the `whatsappChatParser` variable will be g
 You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsapp-chat-parser).
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/whatsapp-chat-parser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/index.global.js"></script>
 <!-- Or use a specific version -->
-<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@3.2.3/dist/whatsapp-chat-parser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@4.0.0/dist/index.global.js"></script>
 ```
 
-&nbsp;
+## Message structure
 
 The `messages` variable is an array of objects like this:
 
-```javascript
+```js
 [
   {
     date: '2018-06-02T22:45:00.000Z', // Date object
@@ -97,7 +97,7 @@ The `messages` variable is an array of objects like this:
 
 When using the option [`parseAttachments`](#options), the message may contain an additional property `attachment`:
 
-```javascript
+```js
 [
   {
     date: '2018-06-02T23:50:00.000Z', // Date object
@@ -112,7 +112,7 @@ When using the option [`parseAttachments`](#options), the message may contain an
 
 In the case of a system message, the author will be `null`
 
-```javascript
+```js
 [
   {
     date: '2018-06-02T22:45:00.000Z', // Date object
@@ -124,7 +124,7 @@ In the case of a system message, the author will be `null`
 
 ## API
 
-### parseString(string, [options]) → Promise
+### parseString(string, [options]) → Array
 
 **string**
 
@@ -138,10 +138,6 @@ Type: `object`
 
 A configuration object, more details below
 
-### parseStringSync(string, [options]) → Array
-
-Same as `parseString` but returns the messages directly instead of a promise.
-
 ## Options
 
 <!-- prettier-ignore-start -->
@@ -153,7 +149,7 @@ Same as `parseString` but returns the messages directly instead of a promise.
 
 ## A note about messages order
 
-Sometimes, likely due to connection issues, WhatsApp exports contain messages that are not chronologically ordered.
+Sometimes, likely due to connection issues, WhatsApp exports contain messages that are not chronologically ordered.  
 This library won't change the order of the messages, but if your application expects a certain order make sure to sort the array of messages accordingly before use.
 
 See [#247](https://github.com/Pustur/whatsapp-chat-parser/issues/247) for more info.
@@ -166,7 +162,7 @@ See [#247](https://github.com/Pustur/whatsapp-chat-parser/issues/247) for more i
 ## Technologies used
 
 - Language: [TypeScript](https://www.typescriptlang.org/)
-- Testing: [Jest](https://jestjs.io/)
+- Testing: [Vitest](https://vitest.dev/)
 - Code formatting: [Prettier](https://prettier.io/)
 - Linting: [ESLint](https://eslint.org/) (with [Airbnb rules](https://www.npmjs.com/package/eslint-config-airbnb-base))
 
