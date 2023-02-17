@@ -2,9 +2,15 @@
   "name": "whatsapp-chat-parser",
   "version": "3.2.3",
   "description": "A package to parse WhatsApp chats with Node.js or in the browser 💬",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "type": "module",
+  "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist/"
   ],
