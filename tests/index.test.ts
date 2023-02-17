@@ -11,38 +11,10 @@ Is everything alright?
 
 describe('index.js', () => {
   describe('parseString', () => {
-    const shortChatPromise = whatsappParser.parseString(chatExample);
+    const messages = whatsappParser.parseString(chatExample);
 
     it('should return an empty array if an empty string is parsed', () => {
-      expect.assertions(1);
-
-      return expect(whatsappParser.parseString('')).resolves.toEqual([]);
-    });
-
-    it('should contain a correct amount of parsed messages', () => {
-      expect.assertions(1);
-
-      return shortChatPromise.then(messages => {
-        expect(messages).toHaveLength(5);
-      });
-    });
-
-    it('should not swallow empty lines', () => {
-      expect.assertions(1);
-
-      return shortChatPromise.then(messages => {
-        expect(messages[4].message).toBe(
-          'How are you?\n\nIs everything alright?\n',
-        );
-      });
-    });
-  });
-
-  describe('parseStringSync', () => {
-    const messages = whatsappParser.parseStringSync(chatExample);
-
-    it('should return an empty array if an empty string is parsed', () => {
-      expect(whatsappParser.parseStringSync('')).toEqual([]);
+      expect(whatsappParser.parseString('')).toEqual([]);
     });
 
     it('should contain a correct amount of parsed messages', () => {
@@ -58,7 +30,7 @@ describe('index.js', () => {
 
   describe('fixes', () => {
     it(`should pass for issue #237`, () => {
-      const messages = whatsappParser.parseStringSync(
+      const messages = whatsappParser.parseString(
         '30/12/2020 13:00 - a: m\n13/1/2021 13:00 - a: m',
       );
 
