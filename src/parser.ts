@@ -7,10 +7,18 @@ import {
 } from './time';
 import { Attachment, Message, RawMessage, ParseStringOptions } from './types';
 
-const regexParser =
-  /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.]\s?\d{1,4}[-/.]\s?\d{1,4})[,.]?\s\D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?:\s([ap]\.?\s?m\.?))?\]?(?:\s-|:)?\s(.+?):\s([^]*)/i;
-const regexParserSystem =
-  /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.]\s?\d{1,4}[-/.]\s?\d{1,4})[,.]?\s\D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?:\s([ap]\.?\s?m\.?))?\]?(?:\s-|:)?\s([^]+)/i;
+const sharedRegex =
+  /^(?:\u200E|\u200F)*\[?(\d{1,4}[-/.]\s?\d{1,4}[-/.]\s?\d{1,4})[,.]?\s\D*?(\d{1,2}[.:]\d{1,2}(?:[.:]\d{1,2})?)(?:\s([ap]\.?\s?m\.?))?\]?(?:\s-|:)?\s/;
+const authorAndMessageRegex = /(.+?):\s([^]*)/;
+const messageRegex = /([^]+)/;
+const regexParser = new RegExp(
+  sharedRegex.source + authorAndMessageRegex.source,
+  'i',
+);
+const regexParserSystem = new RegExp(
+  sharedRegex.source + messageRegex.source,
+  'i',
+);
 const regexAttachment = /<.+:(.+)>|([A-Z\d-]+\.\w+)\s[(<].+[)>]/;
 
 /**
@@ -84,7 +92,7 @@ function parseMessages(
         msg,
       ) as RegExpExecArray;
 
-      return { date, time, ampm: ampm || null, author: 'System', message };
+      return { date, time, ampm: ampm || null, author: null, message };
     }
 
     const [, date, time, ampm, author, message] = regexParser.exec(

@@ -16,9 +16,9 @@ interface Message {
    */
   date: Date;
   /**
-   * The author of the message. Will be `System` for messages without an author.
+   * The author of the message. Will be null for messages without an author (system messages).
    */
-  author: string;
+  author: string | null;
   /**
    * The message itself.
    */

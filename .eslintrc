@@ -4,18 +4,19 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
-  "env": {
-    "jest": true
-  },
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".ts"]
+        "extensions": [".ts"]
       }
     }
   },
   "rules": {
     "import/extensions": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": ["**/*.test.[jt]s", "**/*.config.[jt]s"] }
+    ],
     "import/prefer-default-export": "off",
     "no-param-reassign": ["error", { "props": false }]
   }

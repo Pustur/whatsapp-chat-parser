@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import {
   checkAbove12,
   checkDecreasing,

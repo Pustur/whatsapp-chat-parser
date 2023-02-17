@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] - 2023-02-18
+
+### Added
+
+- Exported types that the end user may need
+
+### Changed
+
+- **BREAKING** Renamed `parseStringSync` into `parseString`. The old async `parseString` has been removed
+- **BREAKING** In case of a system message the `author` property will be now set to `null` as opposed to the string `"System"`
+- Ship ESM and CJS versions, as well as a version for browsers. All files are minified. The new structure is the following:
+
+  ```sh
+  dist/
+  ├── index.cjs       # CommonJS
+  ├── index.d.ts      # Types
+  ├── index.global.js # Browser without ESM
+  └── index.js        # ESM
+  ```
+
+- Replaced jest with vitest
+- Replaced rollup with tsup
+
 ## [3.2.3] - 2023-02-17
 
 ### Changed
@@ -268,6 +291,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
+[4.0.0]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.2.3...4.0.0
 [3.2.3]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.2.2...3.2.3
 [3.2.2]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.2.1...3.2.2
 [3.2.1]: https://github.com/Pustur/whatsapp-chat-parser/compare/3.2.0...3.2.1
