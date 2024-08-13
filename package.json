@@ -16,9 +16,9 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "TZ=UTC vitest run",
-    "test:watch": "TZ=UTC vitest watch",
-    "test:coverage": "TZ=UTC vitest run --coverage",
+    "test": "cross-env TZ=UTC vitest run",
+    "test:watch": "cross-env TZ=UTC vitest watch",
+    "test:coverage": "cross-env TZ=UTC vitest run --coverage",
     "lint": "tsc && eslint .",
     "format": "prettier --write .",
     "prepublishOnly": "npm run build && npm t"
@@ -51,6 +51,7 @@
     "@typescript-eslint/eslint-plugin": "5.52.0",
     "@typescript-eslint/parser": "5.52.0",
     "@vitest/coverage-c8": "^0.28.5",
+    "cross-env": "7.0.3",
     "eslint": "8.34.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-config-prettier": "8.6.0",
