@@ -17,7 +17,6 @@
       "error",
       { "devDependencies": ["**/*.test.[jt]s", "**/*.config.[jt]s"] }
     ],
-    "import/prefer-default-export": "off",
     "no-param-reassign": ["error", { "props": false }]
   }
 }
