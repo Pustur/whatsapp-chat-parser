@@ -73,7 +73,7 @@ You can also use the [jsDelivr CDN](https://www.jsdelivr.com/package/npm/whatsap
 ```html
 <script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser/dist/index.global.js"></script>
 <!-- Or use a specific version -->
-<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@4.0.0/dist/index.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/whatsapp-chat-parser@4.0.1/dist/index.global.js"></script>
 ```
 
 ## Message structure
