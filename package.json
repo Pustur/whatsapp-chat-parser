@@ -1,6 +1,6 @@
 {
   "name": "whatsapp-chat-parser",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A package to parse WhatsApp chats with Node.js or in the browser 💬",
   "type": "module",
   "main": "dist/index.cjs",
@@ -16,17 +16,12 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "TZ=UTC vitest run",
-    "test:watch": "TZ=UTC vitest watch",
-    "test:coverage": "TZ=UTC vitest run --coverage",
+    "test": "cross-env TZ=UTC vitest run",
+    "test:watch": "cross-env TZ=UTC vitest watch",
+    "test:coverage": "cross-env TZ=UTC vitest run --coverage",
     "lint": "tsc && eslint .",
     "format": "prettier --write .",
-    "format:staged": "pretty-quick --staged",
-    "prepack": "npm run build && pinst --disable",
-    "postpack": "pinst --enable",
-    "prepublishOnly": "npm run build && npm t && pinst --disable",
-    "postinstall": "husky install",
-    "postpublish": "pinst --enable"
+    "prepublishOnly": "npm run build && npm t"
   },
   "engines": {
     "node": ">=8.0.0"
@@ -53,20 +48,18 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "5.52.0",
-    "@typescript-eslint/parser": "5.52.0",
-    "@vitest/coverage-c8": "^0.28.5",
-    "eslint": "8.34.0",
+    "@typescript-eslint/eslint-plugin": "8.1.0",
+    "@typescript-eslint/parser": "8.1.0",
+    "@vitest/coverage-istanbul": "2.0.5",
+    "cross-env": "7.0.3",
+    "eslint": "8.57.0",
     "eslint-config-airbnb-base": "15.0.0",
-    "eslint-config-prettier": "8.6.0",
-    "eslint-plugin-import": "2.27.5",
-    "eslint-plugin-prettier": "4.2.1",
-    "husky": "8.0.3",
-    "pinst": "3.0.0",
-    "prettier": "2.8.4",
-    "pretty-quick": "3.1.3",
-    "tsup": "6.6.3",
-    "typescript": "4.9.5",
-    "vitest": "^0.28.5"
+    "eslint-config-prettier": "9.1.0",
+    "eslint-plugin-import": "2.29.1",
+    "eslint-plugin-prettier": "5.2.1",
+    "prettier": "3.3.3",
+    "tsup": "8.2.4",
+    "typescript": "5.5.4",
+    "vitest": "2.0.5"
   }
 }
