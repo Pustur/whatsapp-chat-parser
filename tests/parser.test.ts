@@ -207,11 +207,14 @@ describe('parser.js', () => {
           '3/6/18, 1:55 p.m. - a: IMG-20210428-WA0001.jpg (file attached)';
         const format3 =
           '3/6/18, 1:55 p.m. - a: 2015-08-04-PHOTO-00004762.jpg <‎attached>';
+        const format4 =
+          '3/6/18, 1:55 p.m. - a: ‎4f2680f1db95a8454775cc2eefc95bfc.jpg (Datei angehängt)\nDir auch frohe Ostern.';
         const messages = [
           { system: false, msg: format1 },
           { system: false, msg: '3/6/18, 1:55 p.m. - a: m' },
           { system: false, msg: format2 },
           { system: false, msg: format3 },
+          { system: false, msg: format4 },
         ];
         const parsedWithoutAttachments = parseMessages(messages, {
           parseAttachments: false,
@@ -243,6 +246,12 @@ describe('parser.js', () => {
         it('should correctly parse the attachment string with format #3', () => {
           expect(parsedWithAttachments[3]?.attachment?.fileName).toBe(
             '2015-08-04-PHOTO-00004762.jpg',
+          );
+        });
+
+        it('should correctly parse the attachment string with format #4', () => {
+          expect(parsedWithAttachments[4]?.attachment?.fileName).toBe(
+            '4f2680f1db95a8454775cc2eefc95bfc.jpg',
           );
         });
       });
