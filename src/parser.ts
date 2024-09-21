@@ -19,7 +19,8 @@ const regexParserSystem = new RegExp(
   sharedRegex.source + messageRegex.source,
   'i',
 );
-const regexAttachment = /<.+:(.+)>|([A-Z\d-]+\.\w+)\s[(<].+[)>]/;
+const regexAttachment =
+  /^(?:\u200E|\u200F)*(?:<.+:(.+)>|([\w-]+\.\w+)\s[(<].+[)>])/;
 
 /**
  * Takes an array of lines and detects the lines that are part of a previous
