@@ -10,6 +10,10 @@ interface Attachment {
   fileName: string;
 }
 
+interface Poll {
+
+}
+
 interface Message {
   /**
    * The date of the message.
@@ -28,6 +32,11 @@ interface Message {
    * `parseAttachments` to `true`.
    */
   attachment?: Attachment;
+  /**
+ * Available for messages containing attachments when setting the option
+ * `parseAttachments` to `true`.
+ */
+  polls?: Poll[]
 }
 
 interface ParseStringOptions {
@@ -45,6 +54,10 @@ interface ParseStringOptions {
    * `attachment` property.
    */
   parseAttachments?: boolean;
+  /**
+ * Specify if parses polls
+ */
+  parsePollMessage?: boolean
 }
 
 export { RawMessage, Attachment, Message, ParseStringOptions };

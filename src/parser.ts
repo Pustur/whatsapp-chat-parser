@@ -81,7 +81,7 @@ function parseMessages(
   options: ParseStringOptions = {},
 ): Message[] {
   let { daysFirst } = options;
-  const { parseAttachments } = options;
+  const { parseAttachments, parsePollMessage } = options;
 
   // Parse messages with regex
   const parsed = messages.map(obj => {
@@ -138,10 +138,24 @@ function parseMessages(
       message,
     };
 
+
     // Optionally parse attachments
     if (parseAttachments) {
       const attachment = parseMessageAttachment(message);
       if (attachment) finalObject.attachment = attachment;
+    }
+
+    function checkPoll(message) {
+      return true
+    }
+
+    function parsePoll(message) {
+      return message
+    }
+
+    if (parsePollMessage && checkPoll(message)) {
+      finalObject.poll = parsePoll(message)
+
     }
 
     return finalObject;

@@ -13,7 +13,7 @@ const newlinesRegex = /(?:\r\n|\r|\n)/;
  */
 export function parseString(
   string: string,
-  options: ParseStringOptions = { parseAttachments: false },
+  options: ParseStringOptions = { parseAttachments: false, parsePollMessage: false },
 ): Message[] {
   const lines = string.split(newlinesRegex);
   return parseMessages(makeArrayOfMessages(lines), options);
